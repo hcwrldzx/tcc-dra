@@ -53,9 +53,7 @@ if(isset($_GET['deletar'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Painel Administrativo - Dental Soft</title>
     <link rel="stylesheet" href="css/inicial.css">
-    <link rel="stylesheet" href="css/adm.css">
     <style>
-        /* additional painel-specific tweaks (sidebar/layout) */
         .admin-container {
             display: flex;
             min-height: 100vh;
@@ -121,25 +119,6 @@ if(isset($_GET['deletar'])) {
         }
 
         .logout-btn:hover {
-            background: #b91c1c;
-        }
-
-        /* fixed logout at top-left */
-        .logout-fixed {
-            position: fixed;
-            top: 1rem;
-            left: 1rem;
-            background: #dc2626;
-            color: #fff;
-            padding: 0.5rem 1rem;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-            font-size: 0.9rem;
-            z-index: 1100;
-            transition: background 0.3s;
-        }
-        .logout-fixed:hover {
             background: #b91c1c;
         }
 
@@ -420,25 +399,6 @@ if(isset($_GET['deletar'])) {
     </style>
 </head>
 <body>
-    <!-- site header (same as login) -->
-    <header class="header">
-        <div class="container">
-            <div class="logo">
-                <img src="dentalsoft.png" alt="Dental Soft" class="logo-img" title="Dental Soft">
-                <h1>Dental Soft</h1>
-            </div>
-            <nav class="navbar">
-                <a href="inicial.php#home" class="nav-link">HOME</a>
-                <a href="inicial.php#clinica" class="nav-link">CLÍNICA</a>
-                <a href="inicial.php#servicos" class="nav-link">SERVIÇOS</a>
-                <a href="inicial.php#contato" class="nav-link">CONTATO</a>
-            </nav>
-            <a href="agendar.php" class="btn-agendar-header">AGENDAR CONSULTA</a>
-        </div>
-    </header>
-
-    <!-- fixed logout button -->
-    <button onclick="location.href='admin_logout.php'" class="logout-fixed">Sair</button>
     <div class="admin-container">
         <!-- Sidebar -->
         <aside class="sidebar">
@@ -576,28 +536,5 @@ if(isset($_GET['deletar'])) {
             </div>
         </main>
     </div>
-
-    <!-- Footer copied from login page -->
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <h4>Dental Soft</h4>
-                    <p>Clínica odontológica de referência em atendimento de qualidade.</p>
-                </div>
-                <div class="footer-section">
-                    <h4>Horário</h4>
-                    <p>Segunda a Sexta: 9h às 18h<br>Sábado: 9h às 13h</p>
-                </div>
-                <div class="footer-section">
-                    <h4>Contato</h4>
-                    <p>Telefone: (XX) XXXX-XXXX<br>Email: contato@dentalsoft.com</p>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p>&copy; 2026 Dental Soft. Todos os direitos reservados.</p>
-            </div>
-        </div>
-    </footer>
 </body>
 </html>

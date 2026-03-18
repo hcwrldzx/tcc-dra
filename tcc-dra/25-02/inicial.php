@@ -5,21 +5,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Minha Clínica - Clínica Odontológica de Referência</title>
     <link rel="stylesheet" href="css/inicial.css">
-    <link rel="shortcut icon" href="favicondentalsoft.png"  class="favicon" type="image/x-icon">
 </head>
 <body>
     <!-- Header / Navbar -->
     <header class="header">
         <div class="container">
             <div class="logo">
-               <img src="dentalsoft.png" alt="Dental Soft" class="logo-img" title="Dental Soft">
-                <h1>Dental Soft</h1>
+                <img src="img1.jpeg" alt="AFA Odontologia Logo" class="logo-img">
+                <h1>AFA Odontologia</h1>
             </div>
             
             <nav class="navbar">
                 <a href="#home" class="nav-link">HOME</a>
                 <a href="#clinica" class="nav-link">CLÍNICA</a>
-                <a href="#servicos" class="nav-link">SERVIÇOS</a>
+                <a href="servicos.php" class="nav-link">SERVIÇOS</a>
                 <a href="#contato" class="nav-link">CONTATO</a>
                 <a href="admin_login.php" class="nav-link" style="color: #0ea5e9; font-weight: 600;">ADMIN</a>
             </nav>
@@ -37,8 +36,8 @@
                 <a href="agendar.php" class="btn-agendar-hero">Agendar Consulta</a>
             </div>
             
-            <div class="hero-image">
-                <img src="" alt="Clínica AFA"class="hero-img"> 
+            <div class="hero-image"> 
+                <img src="img2.jpeg" alt="Clínica AFA"class="hero-img"> 
             </div>
         </div>
     </section>
@@ -63,66 +62,6 @@
                     <h3>Cuidamos de toda sua saúde bucal</h3>
                     <p>Atendemos desde procedimentos mais simples como profilaxia, até cirurgias, implantes e tratamentos complexos. Você pode confiar, que nossos especialistas vão cuidar muito bem de você e da sua família.</p>
                     <a href="agendar.php" class="btn-agendar-about">Agendar Consulta</a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Services Section -->
-    <section class="services" id="servicos">
-        <div class="container">
-            <h2 class="services-title">Serviços realizados</h2>
-        </div>
-        <div class="services-icons-bar">
-            <div class="services-icon-item">
-                <img src="images/icone1.svg" alt="Odontologia Geral">
-            </div>
-            <div class="services-icon-item">
-                <img src="images/icone2.svg" alt="Implantes">
-            </div>
-            <div class="services-icon-item">
-                <img src="images/icone3.svg" alt="Restaurações">
-            </div>
-            <div class="services-icon-item">
-                <img src="images/icone4.svg" alt="Estética">
-            </div>
-            <div class="services-icon-item">
-                <img src="images/icone5.svg" alt="Clareamento">
-            </div>
-            <div class="services-icon-item">
-                <img src="images/icone6.svg" alt="Ortodontia">
-            </div>
-        </div>
-        <div class="services-content">
-            <div class="services-grid">
-                <div class="service-card">
-                    <h3>Odontologia<br>Geral</h3>
-                    <a href="#" class="service-link">Saiba Mais</a>
-                </div>
-                
-                <div class="service-card">
-                    <h3>Implantes<br>dentários</h3>
-                    <a href="#" class="service-link">Saiba Mais</a>
-                </div>
-                
-                <div class="service-card">
-                    <h3>Restaurações</h3>
-                    <a href="#" class="service-link">Saiba Mais</a>
-                </div>
-                
-                <div class="service-card">
-                    <h3>Odontologia<br>Estética</h3>
-                    <a href="#" class="service-link">Saiba Mais</a>
-                </div>
-                
-                <div class="service-card">
-                    <h3>Clareamento<br>dental</h3>
-                    <a href="#" class="service-link">Saiba Mais</a>
-                </div>
-                
-                <div class="service-card">
-                    <h3>Ortodontia</h3>
-                    <a href="#" class="service-link">Saiba Mais</a>
                 </div>
             </div>
         </div>

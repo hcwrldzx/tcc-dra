@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Agendar Consulta - Clínica Dental</title>
-    <link rel="stylesheet" href="css/agendar.css">
+    <link rel="stylesheet" href="css/inicial.css">
     <style>
         .main-content {
             padding: 3rem 2rem;
@@ -328,7 +328,7 @@
             <nav class="navbar">
                 <a href="inicial.php#home" class="nav-link">HOME</a>
                 <a href="inicial.php#clinica" class="nav-link">CLÍNICA</a>
-                <a href="inicial.php#servicos" class="nav-link">SERVIÇOS</a>
+                <a href="servicos.php" class="nav-link">SERVIÇOS</a>
                 <a href="inicial.php#contato" class="nav-link">CONTATO</a>
             </nav>
 
