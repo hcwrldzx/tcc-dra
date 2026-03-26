@@ -113,7 +113,7 @@ if($editar_id) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Registros de Procedimentos - Dental Soft</title>
-    <link rel="stylesheet" href="css/inicial.css">
+    <link rel="stylesheet" href="/2DS-A/25-02/css/inicial.css">
     <style>
         .registros-container {
             display: flex;

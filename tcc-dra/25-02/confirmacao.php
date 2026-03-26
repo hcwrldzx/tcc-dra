@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Confirmação de Agendamento - AFA Odontologia</title>
+    <title>Confirmação de Agendamento </title>
     <link rel="stylesheet" href="css/confirmacao.css">
 </head>
 <body>
@@ -11,7 +11,7 @@
     <header class="header">
         <div class="container">
             <div class="logo">
-                <img src="images/logo-afa.svg" alt="AFA Odontologia Logo" class="logo-img">
+                <img src="" alt="DentalSoft Logo" class="logo-img">
                 <h1>AFA Odontologia</h1>
             </div>
         </div>

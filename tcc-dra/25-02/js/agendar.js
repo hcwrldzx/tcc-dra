@@ -49,7 +49,8 @@ function renderCalendar() {
         const date = new Date(year, month, day);
         const isToday = date.toDateString() === today.toDateString();
         const isPast = date < new Date(today.getFullYear(), today.getMonth(), today.getDate());
-        const isDisabled = isPast && !isToday;
+        const isSunday = date.getDay() === 0;
+        const isDisabled = (isPast && !isToday) || isSunday;
         
         const dayElement = createDayElement(
             day,
@@ -86,6 +87,11 @@ function createDayElement(day, className, isClickable) {
 }
 
 function selectDate(element, date) {
+    if (date.getDay() === 0) {
+        alert('Domingo não está disponível para agendamento. Por favor escolha outra data.');
+        return;
+    }
+
     // Remove previous selection
     document.querySelectorAll('.calendar-day.selected').forEach(el => {
         el.classList.remove('selected');
@@ -96,9 +102,10 @@ function selectDate(element, date) {
     selectedDate = date;
     selectedDateInput.value = date.toISOString().split('T')[0];
 
-    // Move to time selection step
-    goToStep('time');
+    // Atualiza slots de horário, texto e vai para etapa de horário
+    renderTimeSlots();
     updateDateDisplay();
+    goToStep('time');
 }
 
 function updateDateDisplay() {
@@ -119,26 +126,76 @@ function getEndTime(time) {
     return `${String(date.getHours()).padStart(2, '0')}:${String(date.getMinutes()).padStart(2, '0')}`;
 }
 
-// Time slot selection
-document.querySelectorAll('.time-slot').forEach(btn => {
-    btn.addEventListener('click', () => {
-        // Remove previous selection
-        document.querySelectorAll('.time-slot.selected').forEach(el => {
-            el.classList.remove('selected');
+// Return available time slots based on weekday
+function getAvailableSlots(date) {
+    const day = date.getDay(); // 0 Domingo, 6 Sábado
+
+    if (day === 0) {
+        return []; // Domingo indisponível
+    }
+
+    if (day === 6) {
+        // Sábado 9-12
+        return ['09:00', '10:00', '11:00', '12:00'];
+    }
+
+    // Segunda a sexta: 9-12 e 13-19
+    return ['09:00','10:00','11:00','12:00','13:00','14:00','15:00','16:00','17:00','18:00','19:00'];
+}
+
+// Atualiza slots na página e anexa os eventos
+function renderTimeSlots() {
+    const afternoonSlots = document.getElementById('afternoonSlots');
+    const morningSlots = document.getElementById('morningSlots');
+
+    morningSlots.innerHTML = '';
+    afternoonSlots.innerHTML = '';
+
+    if (!selectedDate) {
+        document.getElementById('selectedDateText').textContent = 'Selecione um dia no calendário para ver os horários.';
+        return;
+    }
+
+    const slots = getAvailableSlots(selectedDate);
+
+    if (slots.length === 0) {
+        document.getElementById('selectedDateText').textContent = 'Clínica não disponível para agendamentos aos domingos.';
+        return;
+    }
+
+    slots.forEach((time) => {
+        const btn = document.createElement('button');
+        btn.className = 'time-slot';
+        btn.dataset.time = time;
+        btn.textContent = time;
+
+        btn.addEventListener('click', () => {
+            document.querySelectorAll('.time-slot.selected').forEach(el => {
+                el.classList.remove('selected');
+            });
+
+            btn.classList.add('selected');
+            selectedTime = time;
+            selectedTimeInput.value = selectedTime;
+            updateDateDisplay();
+
+            setTimeout(() => {
+                goToStep('form');
+            }, 300);
         });
 
-        // Add selection to clicked button
-        btn.classList.add('selected');
-        selectedTime = btn.dataset.time;
-        selectedTimeInput.value = selectedTime;
-        updateDateDisplay();
-
-        // Move to form step
-        setTimeout(() => {
-            goToStep('form');
-        }, 300);
+        const hour = parseInt(time.split(':')[0], 10);
+        if (hour < 13) {
+            morningSlots.appendChild(btn);
+        } else {
+            afternoonSlots.appendChild(btn);
+        }
     });
-});
+
+    if (slots.length > 0) {
+        document.getElementById('selectedDateText').textContent = `Selecione um horário em ${selectedDate.toLocaleDateString('pt-BR', { weekday: 'long', day: 'numeric', month: 'long', year: 'numeric' })}`;
+    }
+}
 
 // Navigation between steps
 prevMonthBtn.addEventListener('click', () => {
@@ -197,4 +254,6 @@ document.getElementById('appointmentForm').addEventListener('submit', (e) => {
 });
 
 // Initialize
+currentDate = new Date();
 renderCalendar();
+renderTimeSlots();

@@ -3,22 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Minha Clínica - Clínica Odontológica de Referência</title>
+    <title>Clínica Odontológica de Referência</title>
     <link rel="stylesheet" href="css/inicial.css">
+    <link rel="shortcut icon" href="favicondentalsoft.png"  class="favicon" type="image/x-icon">
 </head>
 <body>
     <!-- Header / Navbar -->
     <header class="header">
         <div class="container">
             <div class="logo">
-                <img src="img1.jpeg" alt="AFA Odontologia Logo" class="logo-img">
+               <img src="" alt="AFA Odontologia" class="logo-img" title="AFA Odontologia">
                 <h1>AFA Odontologia</h1>
             </div>
             
             <nav class="navbar">
                 <a href="#home" class="nav-link">HOME</a>
                 <a href="#clinica" class="nav-link">CLÍNICA</a>
-                <a href="servicos.php" class="nav-link">SERVIÇOS</a>
+                <a href="#servicos" class="nav-link">SERVIÇOS</a>
                 <a href="#contato" class="nav-link">CONTATO</a>
                 <a href="admin_login.php" class="nav-link" style="color: #0ea5e9; font-weight: 600;">ADMIN</a>
             </nav>
@@ -36,8 +37,8 @@
                 <a href="agendar.php" class="btn-agendar-hero">Agendar Consulta</a>
             </div>
             
-            <div class="hero-image"> 
-                <img src="img2.jpeg" alt="Clínica AFA"class="hero-img"> 
+            <div class="hero-image">
+                <img src="" alt="Clínica AFA"class="hero-img"> 
             </div>
         </div>
     </section>
@@ -67,7 +68,67 @@
         </div>
     </section>
 
-    <!-- Contact Section -->
+    <!-- Services Section -->
+    <section class="services" id="servicos">
+        <div class="container">
+            <h2 class="services-title">Serviços realizados</h2>
+        </div>
+        <div class="services-icons-bar">
+            <div class="services-icon-item">
+                <img src="images/icone1.svg" alt="Odontologia Geral">
+            </div>
+            <div class="services-icon-item">
+                <img src="images/icone2.svg" alt="Implantes">
+            </div>
+            <div class="services-icon-item">
+                <img src="images/icone3.svg" alt="Restaurações">
+            </div>
+            <div class="services-icon-item">
+                <img src="images/icone4.svg" alt="Estética">
+            </div>
+            <div class="services-icon-item">
+                <img src="images/icone5.svg" alt="Clareamento">
+            </div>
+            <div class="services-icon-item">
+                <img src="images/icone6.svg" alt="Ortodontia">
+            </div>
+        </div>
+        <div class="services-content">
+            <div class="services-grid">
+                <div class="service-card">
+                    <h3>Odontologia<br>Geral</h3>
+                    <a href="#" class="service-link">Saiba Mais</a>
+                </div>
+                
+                <div class="service-card">
+                    <h3>Implantes<br>dentários</h3>
+                    <a href="#" class="service-link">Saiba Mais</a>
+                </div>
+                
+                <div class="service-card">
+                    <h3>Restaurações</h3>
+                    <a href="#" class="service-link">Saiba Mais</a>
+                </div>
+                
+                <div class="service-card">
+                    <h3>Odontologia<br>Estética</h3>
+                    <a href="#" class="service-link">Saiba Mais</a>
+                </div>
+                
+                <div class="service-card">
+                    <h3>Clareamento<br>dental</h3>
+                    <a href="#" class="service-link">Saiba Mais</a>
+                </div>
+                
+                <div class="service-card">
+                    <h3>Ortodontia</h3>
+                    <a href="#" class="service-link">Saiba Mais</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    
     <section class="contact" id="contato">
         <div class="container">
             <h2 class="contact-title">Entre em Contato</h2>
@@ -114,18 +175,18 @@
             <!-- Informações de Contato -->
             <div class="contact-info">
                 <div class="info-item">
-                    <h4>📍 Localização</h4>
+                    <h4> Localização</h4>
                     <p>Rua das Flores, 1250<br>Vila Mariana<br>São Paulo - SP, 04016-032</p>
                 </div>
 
                 <div class="info-item">
-                    <h4>📞 Telefone</h4>
+                    <h4> Telefone</h4>
                     <p>(11) 3845-2910<br>(11) 99876-5432</p>
                 </div>
 
                 <div class="info-item">
-                    <h4>📧 Email</h4>
-                    <p>contato@dentalsoft.com.br<br>agendamento@dentalsoft.com.br</p>
+                    <h4> Email</h4>
+                    <p>contato@afaodontologia.com<br>agendamento@afaodontologia.com</p>
                 </div>
             </div>
         </div>
@@ -136,16 +197,16 @@
         <div class="container">
             <div class="footer-content">
                 <div class="footer-section">
-                    <h4>Dental Soft</h4>
+                    <h4>AFA Odontologia</h4>
                     <p>Clínica odontológica de referência em atendimento de qualidade.</p>
                 </div>
                 <div class="footer-section">
                     <h4>Horário</h4>
-                    <p>Segunda a Sexta: 9h às 18h<br>Sábado: 9h às 13h</p>
+                    <p>Segunda a Sexta: 9h às 12h e 14h às 19h<br>Sábado: 9h às 12h</p>
                 </div>
                 <div class="footer-section">
                     <h4>Contato</h4>
-                    <p>Telefone: (11) 98371-9203<br>Email: afaodontologia1@gmail.com</p>
+                    <p>Telefone: (11) 98371-9203<br>Email: contato@afaodontologia.com</p>
                 </div>
             </div>
             <div class="footer-bottom">

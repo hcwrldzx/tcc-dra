@@ -1,10 +1,12 @@
 <!DOCTYPE html>
+<?php header('Cache-Control: no-store, no-cache, must-revalidate, max-age=0'); header('Pragma: no-cache'); header('Expires: 0'); ?>
+<!-- Page updated timestamp: <?php echo date('Y-m-d H:i:s'); ?> -->
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Agendar Consulta - AFA Odontologia</title>
-    <link rel="stylesheet" href="css/inicial.css">
+    <title>Agendar Consulta </title>
+    <link rel="stylesheet" href="css/agendar.css">
     <style>
         .main-content {
             padding: 3rem 2rem;
@@ -121,7 +123,7 @@
             gap: 0.5rem;
         }
 
-        .day {
+        .day, .calendar-day {
             aspect-ratio: 1;
             display: flex;
             align-items: center;
@@ -135,17 +137,17 @@
             transition: all 0.3s;
         }
 
-        .day:hover {
+        .day:hover, .calendar-day:hover {
             background: #e5e7eb;
         }
 
-        .day.selected {
+        .day.selected, .calendar-day.selected {
             background: #0ea5e9;
             color: #fff;
             border-color: #0ea5e9;
         }
 
-        .day.disabled {
+        .day.disabled, .calendar-day.disabled {
             opacity: 0.3;
             cursor: not-allowed;
         }
@@ -321,14 +323,14 @@
     <header class="header">
         <div class="container">
             <div class="logo">
-                <img src="./" alt="AFA Odontologia Logo" class="logo-img">
-                <h1> AFA Odontologia</h1>
+                <img src="./" alt="DentalSoft Logo" class="logo-img">
+                <h1>AFA Odontologia</h1>
             </div>
             
             <nav class="navbar">
                 <a href="inicial.php#home" class="nav-link">HOME</a>
                 <a href="inicial.php#clinica" class="nav-link">CLÍNICA</a>
-                <a href="servicos.php" class="nav-link">SERVIÇOS</a>
+                <a href="inicial.php#servicos" class="nav-link">SERVIÇOS</a>
                 <a href="inicial.php#contato" class="nav-link">CONTATO</a>
             </nav>
 
@@ -387,20 +389,12 @@
             <div class="time-slots">
                 <div class="time-period">
                     <h4>Manhã</h4>
-                    <div class="slots" id="morningSlots">
-                        <button class="time-slot" data-time="09:00">09:00</button>
-                        <button class="time-slot" data-time="10:00">10:00</button>
-                        <button class="time-slot" data-time="11:00">11:00</button>
-                    </div>
+                    <div class="slots" id="morningSlots"></div>
                 </div>
 
                 <div class="time-period">
                     <h4> Tarde</h4>
-                    <div class="slots" id="afternoonSlots">
-                        <button class="time-slot" data-time="13:00">13:00</button>
-                        <button class="time-slot" data-time="15:00">15:00</button>
-                        <button class="time-slot" data-time="16:00">16:00</button>
-                    </div>
+                    <div class="slots" id="afternoonSlots"></div>
                 </div>
             </div>
         </div>
@@ -414,7 +408,7 @@
             <div class="form-header">
                 <h3>Você está registrando: Agendar Consulta</h3>
                 <p id="confirmationText">18 de março de 2026 15:00 - 15:30 America/Sao Paulo</p>
-                <p class="contact-info">Se você ficou com alguma dúvida, entre em contato conosco pelo (11) 98371-9203</p>
+                <p class="contact-info">Se você ficou com alguma dúvida, entre em contato conosco pelo (11) 5555-5555</p>
             </div>
 
             <form id="appointmentForm" method="POST" action="processar_agendamento.php">
@@ -436,7 +430,7 @@
                     <label for="telefone">
                         <span class="icon"></span> Telefone*
                     </label>
-                    <input type="tel" id="telefone" name="telefone" required placeholder="(11) 98371-9203" pattern="[\(\)\s\-\d]+">
+                    <input type="tel" id="telefone" name="telefone" required placeholder="(11) 9999-9999" pattern="[\(\)\s\-\d]+">
                 </div>
 
                 <div class="form-group">
@@ -467,16 +461,16 @@
         <div class="container">
             <div class="footer-content">
                 <div class="footer-section">
-                    <h4>Dental Soft</h4>
+                    <h4>AFA Odontologia</h4>
                     <p>Clínica odontológica de referência em atendimento de qualidade.</p>
                 </div>
                 <div class="footer-section">
                     <h4>Horário</h4>
-                    <p>Segunda a Sexta: 9h às 18h<br>Sábado: 9h às 13h</p>
+                    <p>Segunda a Sexta: 9h às 12h e 13h às 19h<br>Sábado: 9h às 12h</p>
                 </div>
                 <div class="footer-section">
                     <h4>Contato</h4>
-                    <p>Telefone: (11) 98371-9203<br>Email: afaodontologia1@gmail.com</p>
+                    <p>Telefone: (11) 98371-9203<br>Email: afaodontologia1@gmail.com.com</p>
                 </div>
             </div>
             <div class="footer-bottom">

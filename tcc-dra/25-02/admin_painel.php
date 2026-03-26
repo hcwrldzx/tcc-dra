@@ -51,9 +51,11 @@ if(isset($_GET['deletar'])) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Painel Administrativo - AFA Odontologia</title>
+    <title>Painel Administrativo - Dental Soft</title>
     <link rel="stylesheet" href="css/inicial.css">
+    <link rel="stylesheet" href="css/adm.css">
     <style>
+        /* additional painel-specific tweaks (sidebar/layout) */
         .admin-container {
             display: flex;
             min-height: 100vh;
@@ -119,6 +121,25 @@ if(isset($_GET['deletar'])) {
         }
 
         .logout-btn:hover {
+            background: #b91c1c;
+        }
+
+        /* fixed logout at top-left */
+        .logout-fixed {
+            position: fixed;
+            top: 1rem;
+            left: 1rem;
+            background: #dc2626;
+            color: #fff;
+            padding: 0.5rem 1rem;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            z-index: 1100;
+            transition: background 0.3s;
+        }
+        .logout-fixed:hover {
             background: #b91c1c;
         }
 
@@ -399,10 +420,29 @@ if(isset($_GET['deletar'])) {
     </style>
 </head>
 <body>
+    <!-- site header (same as login) -->
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <img src="afa.png" alt="AFA Odontologia" class="logo-img" title="AFA Odontologia">
+                <h1>AFA Odontologia</h1>
+            </div>
+            <nav class="navbar">
+                <a href="inicial.php#home" class="nav-link">HOME</a>
+                <a href="inicial.php#clinica" class="nav-link">CLÍNICA</a>
+                <a href="inicial.php#servicos" class="nav-link">SERVIÇOS</a>
+                <a href="inicial.php#contato" class="nav-link">CONTATO</a>
+            </nav>
+            <a href="agendar.php" class="btn-agendar-header">AGENDAR CONSULTA</a>
+        </div>
+    </header>
+
+    <!-- fixed logout button -->
+    <button onclick="location.href='admin_logout.php'" class="logout-fixed">Sair</button>
     <div class="admin-container">
         <!-- Sidebar -->
         <aside class="sidebar">
-            <h2>Admin AFA Odontologia</h2>
+            <h2>Admin Dental Soft</h2>
             <ul class="sidebar-menu">
                 <li><a href="#" class="active">Painel</a></li>
                 <li><a href="#registros">Registros</a></li>
@@ -536,5 +576,28 @@ if(isset($_GET['deletar'])) {
             </div>
         </main>
     </div>
+
+    <!-- Footer copied from login page -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>Dental Soft</h4>
+                    <p>Clínica odontológica de referência em atendimento de qualidade.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Horário</h4>
+                    <p>Segunda a Sexta: 9h às 12h e 14h às 19h <br>Sábado: 9h às 12h</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Contato</h4>
+                    <p>Telefone: (11) 98371-9203<br>Email: afaodontologia1@gmail.com</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 AFA Odontologia. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
 </body>
 </html>
