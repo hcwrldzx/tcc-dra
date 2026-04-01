@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A Clínica - AFA Odontologia</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- HEADER -->
+    <header class="navbar glass sticky">
+        <div class="logo">
+            <i class="ri-tooth-line text-primary"></i> <span class="font-bold">AFA <span class="text-primary">Odontologia</span></span>
+        </div>
+        <nav class="desktop-nav">
+            <a href="index.html" class="nav-link">Início</a>
+            <a href="sobre.html" class="nav-link" style="color: var(--primary); font-weight: bold;">A Clínica</a>
+            <a href="servicos.html" class="nav-link">Serviços</a>
+            <a href="contato.html" class="nav-link">Contato</a>
+            <a href="admin.html" class="nav-link text-gray">Acesso Dra. <i class="ri-lock-2-line"></i></a>
+        </nav>
+        <button class="btn btn-primary" onclick="App.openModal('schedule-modal')">Agendar Consulta</button>
+    </header>
+
+    <main>
+        <section class="container py-8 fade-in-up">
+            <div class="text-center max-w-lg mx-auto mb-8">
+                <span class="badge">Nossa História</span>
+                <h1 class="text-3xl mt-2 mb-4">Mais do que saúde bucal,<br> entregamos qualidade de vida.</h1>
+            </div>
+
+            <div class="grid-2 align-center gap-6 mb-8 mt-6">
+                <div class="glass radius-lg overflow-hidden relative shadow-lg">
+                    <img src="https://images.unsplash.com/photo-1594824436998-058a231eb906?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Dra. Administradora" class="img-fluid hover-lift">
+                </div>
+                <div class="about-text">
+                    <h2 class="text-2xl mb-4">AFA Odontologia - Corpo Clínico Especializado</h2>
+                    <p class="text-gray text-lg mb-4">Nossa equipe conta com profissionais altamente qualificados para realizar tratamentos com segurança, prezando por resultados estéticos refinados e bem-estar do paciente do início ao fim.</p>
+                    <p class="text-gray text-lg mb-4">Acreditamos no "Odonto Relax": uma experiência sem dor, sem estresse, proporcionada em um ambiente confortável e moderno desenvolvido para seu melhor tratamento.</p>
+                    
+                    <h3 class="mt-6 mb-2">Filosofia de Atendimento:</h3>
+                    <ul class="check-list mt-2">
+                        <li><i class="ri-heart-pulse-line text-primary"></i> Humanização e Empatia com pacientes ansiosos</li>
+                        <li><i class="ri-microscope-line text-primary"></i> Previsibilidade (ver o resultado antes de iniciar)</li>
+                        <li><i class="ri-calendar-check-line text-primary"></i> Pontualidade absoluta com sua agenda</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Galeria e Valores -->
+            <div class="mt-20">
+                <h2 class="text-center text-3xl mb-8">Nossa Estrutura</h2>
+                <div class="grid-3 gap-4">
+                    <img src="https://images.unsplash.com/photo-1629909613654-28e377c37b09?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Sala Clinica" class="img-fluid radius-md glass p-2">
+                    <img src="https://images.unsplash.com/photo-1538108149393-cebb47acdd4e?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Equipamentos" class="img-fluid radius-md glass p-2">
+                    <img src="https://images.unsplash.com/photo-1606811841689-23dfddce3e95?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Conforto" class="img-fluid radius-md glass p-2">
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- FOOTER E MODAL (Omitidos p/ legibilidade mas incluidos visualmente) -->
+    <!-- (Abaixo fica a copia exata do modal que tem no index) -->
+     <div id="schedule-modal" class="modal-overlay hidden">
+        <div class="modal-content glass p-6 radius-lg max-w-lg w-full relative">
+            <button class="modal-close" onclick="App.closeModal('schedule-modal')"><i class="ri-close-line text-2xl"></i></button>
+            <h2 class="text-2xl mb-2">Novo Agendamento</h2>
+            
+            <div id="sched-step-1" class="sched-step active">
+                <p class="text-gray mb-6">Escolha o serviço e o melhor momento para você.</p>
+                <div class="form-group">
+                    <label>Tipo de Tratamento</label>
+                    <select id="sel-service" class="input-modern w-full">
+                        <option value="Avaliação Inicial|0">Avaliação Inicial - Gratuita</option>
+                        <option value="Dentística (Restauração)|120">Dentística (Restauração) - Sob Orçamento</option>
+                        <option value="Tratamento de Canal|600">Tratamento de Canal - A partir R$ 600</option>
+                        <option value="Próteses Fixa/Removível|1500">Próteses Fixa/Removível - Sob Orçamento</option>
+                        <option value="Ortodontia (Manutenção)|180">Ortodontia (Manutenção) - R$ 180</option>
+                        <option value="Alinhadores Invisíveis|3000">Alinhadores Invisíveis - Sob Avaliação</option>
+                        <option value="Implante Dentário|2500">Implante Dentário - Sugestão R$ 2500</option>
+                        <option value="Facetas / Lentes|1800">Facetas / Lentes - R$ 1800 por dente</option>
+                        <option value="Periodontia|200">Periodontia - R$ 200</option>
+                        <option value="Clareamento|800">Clareamento - R$ 800</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Data</label>
+                    <input type="date" id="sel-date" class="input-modern w-full" min="" required>
+                </div>
+                <div class="form-group">
+                    <label>Horário</label>
+                    <div class="flex flex-wrap gap-2" id="slots-container">
+                        <button class="slot-btn" onclick="App.selectSlot(this)">09:00</button>
+                        <button class="slot-btn" onclick="App.selectSlot(this)">14:00</button>
+                        <button class="slot-btn" onclick="App.selectSlot(this)">16:30</button>
+                    </div>
+                    <input type="hidden" id="sel-time" value="">
+                </div>
+                <button class="btn btn-primary w-full mt-4" onclick="App.nextSchedStep()">Continuar para Dados</button>
+            </div>
+            <div id="sched-step-2" class="sched-step hidden">
+                <div class="form-group"><label>Nome *</label><input type="text" id="pat-name" class="input-modern w-full"></div>
+                <div class="form-group"><label>Telefone *</label><input type="tel" id="pat-phone" class="input-modern w-full"></div>
+                <div class="form-group"><label>E-mail *</label><input type="email" id="pat-email" class="input-modern w-full"></div>
+                <div class="flex gap-4 mt-6">
+                    <button class="btn btn-secondary flex-1" onclick="App.prevSchedStep()">Voltar</button>
+                    <button class="btn btn-primary flex-1" onclick="App.finishScheduling()" id="btn-finish-ag">Finalizar Agendamento</button>
+                </div>
+            </div>
+             <div id="sched-step-3" class="sched-step hidden text-center py-6">
+                <i class="ri-checkbox-circle-fill text-success" style="font-size: 5rem;"></i><h2 class="mt-4 mb-2">Agendamento Realizado!</h2>
+                <button class="btn btn-secondary w-full" onclick="App.closeModal('schedule-modal')">Fechar</button>
+            </div>
+        </div>
+    </div>
+    
+    <footer class="bg-dark text-white text-center py-6 mt-8"><p>&copy; 2026 AFA Odontologia. Todos os direitos reservados.</p></footer>
+    
+    <script src="api.js"></script><script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contato - AFA Odontologia</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-light">
+    <!-- HEADER -->
+    <header class="navbar glass sticky">
+        <div class="logo">
+            <i class="ri-tooth-line text-primary"></i> <span class="font-bold">AFA <span class="text-primary">Odontologia</span></span>
+        </div>
+        <nav class="desktop-nav">
+            <a href="index.html" class="nav-link">Início</a>
+            <a href="sobre.html" class="nav-link">A Clínica</a>
+            <a href="servicos.html" class="nav-link">Serviços</a>
+            <a href="contato.html" class="nav-link" style="color: var(--primary); font-weight: bold;">Contato</a>
+            <a href="admin.html" class="nav-link text-gray">Acesso Dra. <i class="ri-lock-2-line"></i></a>
+        </nav>
+        <button class="btn btn-primary" onclick="App.openModal('schedule-modal')">Agendar Consulta</button>
+    </header>
+
+    <main>
+        <section class="container py-8 fade-in-up">
+            <div class="text-center max-w-lg mx-auto mb-8">
+                <span class="badge">Fale Conosco</span>
+                <h1 class="text-3xl mt-2 mb-4">Estamos Prontos para te Atender</h1>
+                <p class="text-gray">Tire suas dúvidas ou agende diretamente pelo nosso WhatsApp. Nossa clínica conta com estrutura completa para você.</p>
+            </div>
+
+            <div class="grid-2 gap-8 glass p-6 radius-lg shadow-lg">
+                <!-- Info Section -->
+                <div>
+                    <h2 class="text-2xl mb-4">Informações de Contato</h2>
+                    <ul class="contact-list mt-6 mb-6">
+                        <li>
+                            <i class="ri-map-pin-2-fill text-primary"></i>
+                            <div>
+                                <strong class="block">Endereço Principal</strong>
+                                <span class="text-gray text-sm">Rua Tibiriça, 26 - Serraria<br>Diadema, SP</span>
+                            </div>
+                        </li>
+                        <li>
+                            <i class="ri-whatsapp-fill text-primary"></i>
+                            <div>
+                                <strong class="block">Agendamento via WhatsApp</strong>
+                                <span class="text-gray text-sm">(11) 98371-9203</span>
+                            </div>
+                        </li>
+                        <li>
+                            <i class="ri-phone-fill text-primary"></i>
+                            <div>
+                                <strong class="block">Telefone da Recepção</strong>
+                                <span class="text-gray text-sm">(11) 98371-9203</span>
+                            </div>
+                        </li>
+                        <li>
+                            <i class="ri-mail-fill text-primary"></i>
+                            <div>
+                                <strong class="block">E-mail de Contato</strong>
+                                <span class="text-gray text-sm">afaodontologia1@gmail.com</span>
+                            </div>
+                        </li>
+                        <li>
+                            <i class="ri-time-fill text-primary"></i>
+                            <div>
+                                <strong class="block">Horário de Funcionamento</strong>
+                                <span class="text-gray text-sm">Seg a Sex: 08:00 às 19:00<br>Sábados: 08:00 às 13:00</span>
+                            </div>
+                        </li>
+                    </ul>
+                    
+                    <button class="btn btn-primary w-full justify-between mt-4" onclick="window.open('https://wa.me/5511983719203?text=Olá, vim pelo site e gostaria de tirar uma dúvida!', '_blank')">Iniciar conversa no WhatsApp <i class="ri-whatsapp-line text-lg"></i></button>
+                </div>
+                
+                <!-- Mapa e Formulario Secundário -->
+                <div>
+                    <h2 class="text-2xl mb-4">Como Chegar</h2>
+                    <div class="map-container radius-md overflow-hidden bg-gray mb-4" style="height: 250px;">
+                        <iframe src="https://maps.google.com/maps?q=Rua%20Tibiri%C3%A7a,%2026%20-%20Serraria,%20Diadema&t=&z=16&ie=UTF8&iwloc=&output=embed" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                    </div>
+
+                    <h3 class="mt-6 mb-2">Orientações de Chegada</h3>
+                    <p class="text-sm text-gray">Nossa clínica está estrategicamente localizada para facilitar o seu acesso. Ao chegar, basta se identificar na recepção.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- FOOTER E MODAL CÓPIA -->
+     <div id="schedule-modal" class="modal-overlay hidden">
+        <div class="modal-content glass p-6 radius-lg max-w-lg w-full relative">
+            <button class="modal-close" onclick="App.closeModal('schedule-modal')"><i class="ri-close-line text-2xl"></i></button>
+            <h2 class="text-2xl mb-2">Novo Agendamento</h2>
+            
+            <div id="sched-step-1" class="sched-step active">
+                <p class="text-gray mb-6">Escolha o serviço e o melhor momento para você.</p>
+                <div class="form-group">
+                    <label>Tipo de Tratamento</label>
+                    <select id="sel-service" class="input-modern w-full">
+                        <option value="Avaliação Inicial|0">Avaliação Inicial - Gratuita</option>
+                        <option value="Dentística (Restauração)|120">Dentística (Restauração) - Sob Orçamento</option>
+                        <option value="Tratamento de Canal|600">Tratamento de Canal - A partir R$ 600</option>
+                        <option value="Próteses Fixa/Removível|1500">Próteses Fixa/Removível - Sob Orçamento</option>
+                        <option value="Ortodontia (Manutenção)|180">Ortodontia (Manutenção) - R$ 180</option>
+                        <option value="Alinhadores Invisíveis|3000">Alinhadores Invisíveis - Sob Avaliação</option>
+                        <option value="Implante Dentário|2500">Implante Dentário - Sugestão R$ 2500</option>
+                        <option value="Facetas / Lentes|1800">Facetas / Lentes - R$ 1800 por dente</option>
+                        <option value="Periodontia|200">Periodontia - R$ 200</option>
+                        <option value="Clareamento|800">Clareamento - R$ 800</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Data</label>
+                    <input type="date" id="sel-date" class="input-modern w-full" min="" required>
+                </div>
+                <div class="form-group">
+                    <label>Horário</label>
+                    <div class="flex flex-wrap gap-2" id="slots-container">
+                        <button class="slot-btn" onclick="App.selectSlot(this)">09:00</button>
+                        <button class="slot-btn" onclick="App.selectSlot(this)">14:00</button>
+                    </div>
+                    <input type="hidden" id="sel-time" value="">
+                </div>
+                <button class="btn btn-primary w-full mt-4" onclick="App.nextSchedStep()">Continuar</button>
+            </div>
+            <div id="sched-step-2" class="sched-step hidden">
+                <div class="form-group"><label>Nome *</label><input type="text" id="pat-name" class="input-modern w-full"></div>
+                <div class="form-group"><label>Telefone *</label><input type="tel" id="pat-phone" class="input-modern w-full"></div>
+                <div class="form-group"><label>E-mail *</label><input type="email" id="pat-email" class="input-modern w-full"></div>
+                <div class="flex gap-4 mt-6">
+                    <button class="btn btn-secondary flex-1" onclick="App.prevSchedStep()">Voltar</button>
+                    <button class="btn btn-primary flex-1" onclick="App.finishScheduling()" id="btn-finish-ag">Finalizar Agendamento</button>
+                </div>
+            </div>
+             <div id="sched-step-3" class="sched-step hidden text-center py-6">
+                <i class="ri-checkbox-circle-fill text-success" style="font-size: 5rem;"></i><h2 class="mt-4 mb-2">Agendamento Realizado!</h2>
+                <button class="btn btn-secondary w-full" onclick="App.closeModal('schedule-modal')">Fechar</button>
+            </div>
+        </div>
+    </div>
+    
+    <footer class="bg-dark text-white text-center py-6 mt-8"><p>&copy; 2026 AFA Odontologia. Todos os direitos reservados.</p></footer>
+    
+    <script src="api.js"></script><script src="app.js"></script>
+</body>
+</html>
