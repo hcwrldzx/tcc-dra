@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Serviços - AFA Odontologia</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-light">
+    <!-- HEADER -->
+    <header class="navbar glass sticky">
+        <div class="logo">
+            <i class="ri-tooth-line text-primary"></i> <span class="font-bold">AFA <span class="text-primary">Odontologia</span></span>
+        </div>
+        <nav class="desktop-nav">
+            <a href="index.html" class="nav-link">Início</a>
+            <a href="sobre.html" class="nav-link">A Clínica</a>
+            <a href="servicos.html" class="nav-link" style="color: var(--primary); font-weight: bold;">Serviços</a>
+            <a href="contato.html" class="nav-link">Contato</a>
+            <a href="admin.html" class="nav-link text-gray">Acesso Dra. <i class="ri-lock-2-line"></i></a>
+        </nav>
+        <button class="btn btn-primary" onclick="App.openModal('schedule-modal')">Agendar Consulta</button>
+    </header>
+
+    <main>
+        <section class="container py-8 fade-in-up">
+            <div class="text-center max-w-lg mx-auto mb-8">
+                <span class="badge">Especialidades</span>
+                <h1 class="text-3xl mt-2 mb-4">Nossos Serviços Completo</h1>
+                <p class="text-gray">Nossa clínica é um centro completo. Você realiza todos os exames e tratamentos em um só lugar, com os melhores profissionais.</p>
+            </div>
+
+            <div class="grid-3 gap-6">
+                <!-- 1 -->
+                <div class="card glass hover-lift p-6">
+                    <i class="ri-tooth-fill text-primary text-4xl mb-4 block"></i>
+                    <h3 class="mb-2">Dentística (Restaurações)</h3>
+                    <p class="text-gray mb-4 text-sm">Tratamento de cáries e fraturas dentárias devolvendo a forma, cor estética e função original ao seu dente utilizando resinas de altíssima durabilidade.</p>
+                </div>
+                <!-- 2 -->
+                <div class="card glass hover-lift p-6">
+                    <i class="ri-pulse-line text-primary text-4xl mb-4 block"></i>
+                    <h3 class="mb-2">Tratamento de Canal</h3>
+                    <p class="text-gray mb-4 text-sm">A endodontia moderna permite tratamentos ágeis, indolores e na maioria das vezes em sessão única, preservando dentes que sofreram danos severos.</p>
+                </div>
+                <!-- 3 -->
+                <div class="card glass hover-lift p-6">
+                    <i class="ri-layout-top-line text-primary text-4xl mb-4 block"></i>
+                    <h3 class="mb-2">Prótese Fixa e Removível</h3>
+                    <p class="text-gray mb-4 text-sm">Devolva a sua mastigação segura. Oferecemos próteses modernas, coroas em porcelana pura que imitam dentes naturais e próteses sobre implantes.</p>
+                </div>
+                <!-- 4 -->
+                <div class="card glass hover-lift p-6">
+                    <i class="ri-tools-line text-primary text-4xl mb-4 block"></i>
+                    <h3 class="mb-2">Ortodontia</h3>
+                    <p class="text-gray mb-4 text-sm">Correção de dentes tortos e problemas de mordida com aparelhos convencionais, estéticos (safira) e autoligados, agilizando o tratamento.</p>
+                </div>
+                <!-- 5 -->
+                <div class="card glass hover-lift p-6">
+                    <i class="ri-magic-line text-primary text-4xl mb-4 block"></i>
+                    <h3 class="mb-2">Alinhadores Invisíveis</h3>
+                    <p class="text-gray mb-4 text-sm">A revolução da ortodontia (como Invisalign). Alinhe seus dentes usando placas transparentes removíveis, altamente discretas e muito mais rápidas e confortáveis.</p>
+                </div>
+                <!-- 6 -->
+                <div class="card glass hover-lift p-6">
+                    <i class="ri-anchor-line text-primary text-4xl mb-4 block"></i>
+                    <h3 class="mb-2">Implantes Dentários</h3>
+                    <p class="text-gray mb-4 text-sm">A solução definitiva para dentes perdidos. Substituímos a raiz por materiais biocompatíveis para fixar um novo dente de forma permanente.</p>
+                </div>
+                <!-- 7 -->
+                <div class="card glass hover-lift p-6">
+                    <i class="ri-vip-diamond-line text-primary text-4xl mb-4 block"></i>
+                    <h3 class="mb-2">Facetas / Lentes de Contato</h3>
+                    <p class="text-gray mb-4 text-sm">O "Sorriso das Estrelas". Revestimentos ultrafinos de porcelana colados sobre os dentes, corrigindo cor, tamanho e formato perfeitamente.</p>
+                </div>
+                <!-- 8 -->
+                <div class="card glass hover-lift p-6">
+                    <i class="ri-leaf-line text-primary text-4xl mb-4 block"></i>
+                    <h3 class="mb-2">Periodontia</h3>
+                    <p class="text-gray mb-4 text-sm">A saúde das suas gengivas e ossos é a fundação de tudo. Tratamos sangramentos, retração gengival e garantimos a base estrutural limpa.</p>
+                </div>
+                <!-- 9 -->
+                <div class="card glass hover-lift p-6">
+                    <i class="ri-sun-fill text-primary text-4xl mb-4 block"></i>
+                    <h3 class="mb-2">Clareamento</h3>
+                    <p class="text-gray mb-4 text-sm">Recupere o brilho e a cor clara dos dentes, combatendo manchas do dia-a-dia com métodos a laser (clínica) ou caseiro supervisionado.</p>
+                </div>
+            </div>
+            
+            <div class="mt-8 text-center">
+                <button class="btn btn-primary btn-large" onclick="App.openModal('schedule-modal')">Pronto para transformar seu sorriso? Agende Aqui!</button>
+            </div>
+        </section>
+    </main>
+
+    <!-- FOOTER E MODAL CÓPIA (Para funcionar independentemente) -->
+     <div id="schedule-modal" class="modal-overlay hidden">
+        <div class="modal-content glass p-6 radius-lg max-w-lg w-full relative">
+            <button class="modal-close" onclick="App.closeModal('schedule-modal')"><i class="ri-close-line text-2xl"></i></button>
+            <h2 class="text-2xl mb-2">Novo Agendamento</h2>
+            
+            <div id="sched-step-1" class="sched-step active">
+                <p class="text-gray mb-6">Escolha o serviço e o melhor momento para você.</p>
+                <div class="form-group">
+                    <label>Tipo de Tratamento</label>
+                    <select id="sel-service" class="input-modern w-full">
+                        <option value="Avaliação Inicial|0">Avaliação Inicial - Gratuita</option>
+                        <option value="Dentística (Restauração)|120">Dentística (Restauração) - Sob Orçamento</option>
+                        <option value="Tratamento de Canal|600">Tratamento de Canal - A partir R$ 600</option>
+                        <option value="Próteses Fixa/Removível|1500">Próteses Fixa/Removível - Sob Orçamento</option>
+                        <option value="Ortodontia (Manutenção)|180">Ortodontia (Manutenção) - R$ 180</option>
+                        <option value="Alinhadores Invisíveis|3000">Alinhadores Invisíveis - Sob Avaliação</option>
+                        <option value="Implante Dentário|2500">Implante Dentário - Sugestão R$ 2500</option>
+                        <option value="Facetas / Lentes|1800">Facetas / Lentes - R$ 1800 por dente</option>
+                        <option value="Periodontia|200">Periodontia - R$ 200</option>
+                        <option value="Clareamento|800">Clareamento - R$ 800</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Data</label>
+                    <input type="date" id="sel-date" class="input-modern w-full" min="" required>
+                </div>
+                <div class="form-group">
+                    <label>Horário</label>
+                    <div class="flex flex-wrap gap-2" id="slots-container">
+                        <button class="slot-btn" onclick="App.selectSlot(this)">09:00</button>
+                        <button class="slot-btn" onclick="App.selectSlot(this)">14:00</button>
+                    </div>
+                    <input type="hidden" id="sel-time" value="">
+                </div>
+                <button class="btn btn-primary w-full mt-4" onclick="App.nextSchedStep()">Continuar</button>
+            </div>
+            <div id="sched-step-2" class="sched-step hidden">
+                <div class="form-group"><label>Nome *</label><input type="text" id="pat-name" class="input-modern w-full"></div>
+                <div class="form-group"><label>Telefone *</label><input type="tel" id="pat-phone" class="input-modern w-full"></div>
+                <div class="form-group"><label>E-mail *</label><input type="email" id="pat-email" class="input-modern w-full"></div>
+                <div class="flex gap-4 mt-6">
+                    <button class="btn btn-secondary flex-1" onclick="App.prevSchedStep()">Voltar</button>
+                    <button class="btn btn-primary flex-1" onclick="App.finishScheduling()" id="btn-finish-ag">Finalizar Agendamento</button>
+                </div>
+            </div>
+             <div id="sched-step-3" class="sched-step hidden text-center py-6">
+                <i class="ri-checkbox-circle-fill text-success" style="font-size: 5rem;"></i><h2 class="mt-4 mb-2">Agendamento Realizado!</h2>
+                <button class="btn btn-secondary w-full" onclick="App.closeModal('schedule-modal')">Fechar</button>
+            </div>
+        </div>
+    </div>
+    
+    <footer class="bg-dark text-white text-center py-6 mt-8"><p>&copy; 2026 AFA Odontologia. Todos os direitos reservados.</p></footer>
+    
+    <script src="api.js"></script><script src="app.js"></script>
+</body>
+</html>

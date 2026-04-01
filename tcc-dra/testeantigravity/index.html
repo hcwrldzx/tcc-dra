@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Início - AFA Odontologia</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- HEADER COMPARTILHADO -->
+    <header class="navbar glass sticky">
+        <div class="logo">
+            <i class="ri-tooth-line text-primary"></i> <span class="font-bold">AFA <span class="text-primary">Odontologia</span></span>
+        </div>
+        <nav class="desktop-nav">
+            <a href="index.html" class="nav-link" style="color: var(--primary); font-weight: bold;">Início</a>
+            <a href="sobre.html" class="nav-link">A Clínica</a>
+            <a href="servicos.html" class="nav-link">Serviços</a>
+            <a href="contato.html" class="nav-link">Contato</a>
+            <a href="admin.html" class="nav-link text-gray">Acesso Dra. <i class="ri-lock-2-line"></i></a>
+        </nav>
+        <button class="btn btn-primary" onclick="App.openModal('schedule-modal')">Agendar Consulta</button>
+    </header>
+
+    <main>
+        <!-- HERO -->
+        <section class="container hero-section">
+            <div class="hero-text fade-in-up">
+                <span class="badge">Especialistas em Transformar Vidas</span>
+                <h1>Sorrisos saudáveis e <span class="text-gradient">renovados</span>.</h1>
+                <p>Oferecemos tratamentos odontológicos de alta performance, devolvendo a sua autoestima com o que há de mais moderno na odontologia mundial.</p>
+                <div class="flex gap-4 mt-6">
+                    <button class="btn btn-primary btn-large" onclick="App.openModal('schedule-modal')">Agendar Agora</button>
+                    <a href="servicos.html" class="btn btn-secondary btn-large">Ver Nossos Serviços</a>
+                </div>
+            </div>
+            <div class="hero-image glass fade-in-up" style="animation-delay: 200ms;">
+                 <img src="https://images.unsplash.com/photo-1606811841689-23dfddce3e95?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Consultório Moderno" class="img-fluid radius-md">
+            </div>
+        </section>
+
+        <!-- DESTAQUES RAPIDOS -->
+        <section class="bg-light py-8">
+            <div class="container text-center">
+                <h2 class="text-3xl mb-8">Por que escolher nossa clínica?</h2>
+                <div class="grid-3 gap-6">
+                    <div class="glass p-6 radius-lg hover-lift slide-in-bottom">
+                        <i class="ri-shield-check-line text-primary text-4xl mb-4 text-center w-full block"></i>
+                        <h3>Segurança Total</h3>
+                        <p class="text-gray mt-2">Rigidíssimos protocolos de biossegurança garantindo esterilização impecável.</p>
+                    </div>
+                    <div class="glass p-6 radius-lg hover-lift slide-in-bottom" style="animation-delay: 100ms;">
+                        <i class="ri-microscope-line text-primary text-4xl mb-4 text-center w-full block"></i>
+                        <h3>Alta Tecnologia</h3>
+                        <p class="text-gray mt-2">Equipamentos de imagem 3D, laserterapia e sedação consciente para seu conforto.</p>
+                    </div>
+                    <div class="glass p-6 radius-lg hover-lift slide-in-bottom" style="animation-delay: 200ms;">
+                        <i class="ri-service-line text-primary text-4xl mb-4 text-center w-full block"></i>
+                        <h3>Equipe Multidisciplinar</h3>
+                        <p class="text-gray mt-2">Especialistas unidos para resolver os casos mais complexos no mesmo lugar.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    
+    <!-- FOOTER COMPARTILHADO -->
+    <footer class="bg-dark text-white text-center py-6 mt-8">
+        <p>&copy; 2026 AFA Odontologia. Todos os direitos reservados.</p>
+    </footer>
+
+    <!-- MODAL DE AGENDAMENTO COMPARTILHADO -->
+    <div id="schedule-modal" class="modal-overlay hidden">
+        <div class="modal-content glass slide-in-top p-6 radius-lg max-w-lg w-full relative">
+            <button class="modal-close" onclick="App.closeModal('schedule-modal')"><i class="ri-close-line text-2xl"></i></button>
+            <h2 class="text-2xl mb-2" id="modal-title">Novo Agendamento</h2>
+            
+            <div id="sched-step-1" class="sched-step active">
+                <p class="text-gray mb-6">Escolha o serviço e o melhor momento para você.</p>
+                <div class="form-group">
+                    <label>Tipo de Tratamento</label>
+                    <select id="sel-service" class="input-modern w-full">
+                        <option value="Avaliação Inicial|0">Avaliação Inicial - Gratuita</option>
+                        <option value="Dentística (Restauração)|120">Dentística (Restauração) - Sob Orçamento</option>
+                        <option value="Tratamento de Canal|600">Tratamento de Canal - A partir R$ 600</option>
+                        <option value="Próteses Fixa/Removível|1500">Próteses Fixa/Removível - Sob Orçamento</option>
+                        <option value="Ortodontia (Manutenção)|180">Ortodontia (Manutenção) - R$ 180</option>
+                        <option value="Alinhadores Invisíveis|3000">Alinhadores Invisíveis - Sob Avaliação</option>
+                        <option value="Implante Dentário|2500">Implante Dentário - Sugestão R$ 2500</option>
+                        <option value="Facetas / Lentes|1800">Facetas / Lentes - R$ 1800 por dente</option>
+                        <option value="Periodontia|200">Periodontia - R$ 200</option>
+                        <option value="Clareamento|800">Clareamento - R$ 800</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Data</label>
+                    <input type="date" id="sel-date" class="input-modern w-full" min="" required>
+                </div>
+                <div class="form-group">
+                    <label>Horário</label>
+                    <div class="flex flex-wrap gap-2" id="slots-container">
+                        <button class="slot-btn" onclick="App.selectSlot(this)">09:00</button>
+                        <button class="slot-btn" onclick="App.selectSlot(this)">10:30</button>
+                        <button class="slot-btn" onclick="App.selectSlot(this)">14:00</button>
+                        <button class="slot-btn" onclick="App.selectSlot(this)">15:30</button>
+                        <button class="slot-btn" onclick="App.selectSlot(this)">17:00</button>
+                    </div>
+                    <input type="hidden" id="sel-time" value="">
+                </div>
+                <button class="btn btn-primary w-full mt-4" onclick="App.nextSchedStep()">Continuar para Dados</button>
+            </div>
+
+            <div id="sched-step-2" class="sched-step hidden">
+                <p class="text-gray mb-4">Insira seus dados para confirmar.</p>
+                <div class="form-group">
+                    <label>Nome Completo *</label>
+                    <input type="text" id="pat-name" class="input-modern w-full" required>
+                </div>
+                <div class="form-group">
+                    <label>Telefone / WhatsApp *</label>
+                    <input type="tel" id="pat-phone" class="input-modern w-full" required>
+                </div>
+                <div class="form-group">
+                    <label>E-mail *</label>
+                    <input type="email" id="pat-email" class="input-modern w-full" required>
+                </div>
+                <div class="flex gap-4 mt-6">
+                    <button class="btn btn-secondary flex-1" onclick="App.prevSchedStep()">Voltar</button>
+                    <button class="btn btn-primary flex-1" onclick="App.finishScheduling()" id="btn-finish-ag">Finalizar Agendamento</button>
+                </div>
+            </div>
+
+             <div id="sched-step-3" class="sched-step hidden text-center py-6">
+                <i class="ri-checkbox-circle-fill text-success" style="font-size: 5rem;"></i>
+                <h2 class="text-2xl mt-4 mb-2">Agendamento Realizado!</h2>
+                <button class="btn btn-secondary w-full mb-2" onclick="App.closeModal('schedule-modal')">Fechar</button>
+                <button class="btn btn-primary w-full" onclick="App.simularEnvioWhatsappPaciente()"><i class="ri-whatsapp-line"></i> Enviar recibo por WhatsApp</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- SCRIPTS -->
+    <script src="api.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>

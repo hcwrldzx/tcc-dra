@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Painel - AFA Odontologia</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-light">
+
+    <!-- ÁREA ADMINISTRATIVA (DRA.) -->
+    <div id="admin-area" class="app-area">
+        
+        <!-- LOGIN VIEW -->
+        <div id="admin-login" class="admin-view active auth-bg">
+            <div class="glass max-w-sm mx-auto p-8 radius-lg text-center mt-20 slide-in-top fade-in">
+                <i class="ri-lock-password-fill text-primary text-5xl mb-4 block"></i>
+                <h2 class="mb-2">Acesso Restrito</h2>
+                <p class="text-gray mb-6">Área exclusiva para a Dra. e Administração</p>
+                
+                <form id="login-form" onsubmit="App.handleLogin(event)">
+                    <div class="form-group">
+                        <input type="email" id="login-email" class="input-modern w-full" placeholder="E-mail (afaodontologia1@gmail.com)" required>
+                    </div>
+                    <div class="form-group mb-6">
+                        <input type="password" id="login-pass" class="input-modern w-full" placeholder="Senha (admin123)" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary w-full" id="btn-login-submit">Entrar no Sistema</button>
+                    <button type="button" class="btn btn-secondary w-full mt-4" onclick="window.location.href='index.html'">Voltar ao Site Público</button>
+                    
+                    <div id="login-error" class="alert alert-danger hidden mt-4 text-sm text-danger font-bold"></div>
+                </form>
+            </div>
+        </div>
+
+        <!-- DASHBOARD VIEW -->
+        <div id="admin-dashboard" class="admin-view hidden bg-light min-h-screen">
+            <!-- Admin Header -->
+            <header class="navbar glass sticky top-0 bg-white">
+                <div class="logo">
+                     <span class="font-bold">Painel de <span class="text-primary">Controle</span></span>
+                </div>
+                <!-- Navigation within Admin -->
+                <nav class="desktop-nav">
+                    <a href="index.html" class="nav-link"><i class="ri-arrow-left-s-line"></i> Site do Paciente</a>
+                </nav>
+                <div class="flex gap-4 align-center">
+                    <span class="text-gray font-500" id="admin-user-name">Ola, Dra. Administradora</span>
+                    <button class="btn btn-sm btn-secondary" onclick="App.logout()"><i class="ri-logout-box-r-line"></i> Sair</button>
+                </div>
+            </header>
+
+            <div class="container pt-6 pb-20 fade-in-up">
+                <h2 class="text-2xl mb-6">Visão Geral Financeira</h2>
+                <div class="grid-3 gap-6 mb-8">
+                    <div class="card glass p-6 border-l-4 border-l-primary">
+                        <div class="text-gray text-sm font-bold uppercase mb-2">Valor Bruto (Confirmado)</div>
+                        <div class="text-3xl font-bold" id="dash-gross">R$ 0,00</div>
+                    </div>
+                    <div class="card glass p-6 border-l-4 border-l-success relative">
+                        <div class="text-gray text-sm font-bold uppercase mb-2">Valor Líquido (Real)</div>
+                        <div class="text-3xl font-bold text-success" id="dash-net">R$ 0,00</div>
+                        <div class="absolute top-4 right-4 text-xs bg-dark text-white p-1 radius-md text-sm" title="Média de imposto/taxas simuladas (-15%)">-15% Taxas</div>
+                    </div>
+                    <div class="card glass p-6 border-l-4 border-l-warn">
+                        <div class="text-gray text-sm font-bold uppercase mb-2">Consultas da Clínica</div>
+                        <div class="text-3xl font-bold text-warning" id="dash-count">0</div>
+                    </div>
+                </div>
+
+                <!-- Gestão de Consultas -->
+                <div class="flex justify-between align-center mb-4">
+                    <h2 class="text-2xl m-0">Gerenciamento da Agenda</h2>
+                    <button class="btn btn-primary" onclick="App.loadAdminData()"><i class="ri-refresh-line"></i> Atualizar Dados</button>
+                </div>
+                
+                <div class="card glass p-0 overflow-hidden shadow-sm">
+                    <table class="modern-table w-full text-left table-responsive">
+                        <thead class="bg-gray-100">
+                            <tr>
+                                <th>Paciente</th>
+                                <th>Contato VIP</th>
+                                <th>Serviço / Valor Bruto</th>
+                                <th>Data / Hora</th>
+                                <th>Status</th>
+                                <th>Ações Rápidas</th>
+                            </tr>
+                        </thead>
+                        <tbody id="admin-appointments-list">
+                            <!-- Injetado por JS (app.js) -->
+                        </tbody>
+                    </table>
+                    <div id="admin-empty-state" class="text-center p-8 text-gray hidden">
+                        <i class="ri-inbox-archive-line text-4xl mb-4 block"></i>
+                        <p>Ainda não há agendamentos. Acesse a área pública para simular um!</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- SCRIPTS -->
+    <script src="api.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
