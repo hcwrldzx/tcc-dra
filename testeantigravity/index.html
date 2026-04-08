@@ -1,148 +1,208 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Início - AFA Odontologia</title>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <title>AFA Odontologia - A Clínica do Seu Sorriso</title>
+    <!-- Premium Fonts -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Inter:wght@400;500&display=swap"
+        rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
-<body>
-    <!-- HEADER COMPARTILHADO -->
-    <header class="navbar glass sticky">
+
+<body class="bg-gray-50">
+
+    <!-- Navbar -->
+    <header class="navbar glass sticky transition-all" id="main-nav">
         <div class="logo">
-            <i class="ri-tooth-line text-primary"></i> <span class="font-bold">AFA <span class="text-primary">Odontologia</span></span>
+            <i class="ri-tooth-line text-primary"></i> <span class="font-bold">AFA <span
+                    class="text-gradient">Odontologia</span></span>
         </div>
         <nav class="desktop-nav">
-            <a href="index.html" class="nav-link" style="color: var(--primary); font-weight: bold;">Início</a>
+            <a href="index.html" class="nav-link active">Início</a>
             <a href="sobre.html" class="nav-link">A Clínica</a>
-            <a href="servicos.html" class="nav-link">Serviços</a>
+            <a href="servicos.html" class="nav-link">Tratamentos</a>
             <a href="contato.html" class="nav-link">Contato</a>
-            <a href="admin.html" class="nav-link text-gray">Acesso Dra. <i class="ri-lock-2-line"></i></a>
+            <a href="admin.html" class="nav-link text-gray ml-4 border-l pl-4 admin-link">Acesso <i
+                    class="ri-lock-2-line"></i></a>
         </nav>
-        <button class="btn btn-primary" onclick="App.openModal('schedule-modal')">Agendar Consulta</button>
+        <div class="flex gap-2">
+            <a href="contato.html" class="btn btn-primary btn-glow">Fale Conosco <i
+                    class="ri-whatsapp-line"></i></a>
+        </div>
     </header>
 
     <main>
-        <!-- HERO -->
-        <section class="container hero-section">
-            <div class="hero-text fade-in-up">
-                <span class="badge">Especialistas em Transformar Vidas</span>
-                <h1>Sorrisos saudáveis e <span class="text-gradient">renovados</span>.</h1>
-                <p>Oferecemos tratamentos odontológicos de alta performance, devolvendo a sua autoestima com o que há de mais moderno na odontologia mundial.</p>
-                <div class="flex gap-4 mt-6">
-                    <button class="btn btn-primary btn-large" onclick="App.openModal('schedule-modal')">Agendar Agora</button>
-                    <a href="servicos.html" class="btn btn-secondary btn-large">Ver Nossos Serviços</a>
+        <!-- BG BLOBS PARA EFEITO VISUAL -->
+        <div class="bg-shape shape-1"></div>
+        <div class="bg-shape shape-2"></div>
+
+        <!-- SEÇÃO: INÍCIO (HERO) -->
+        <section id="inicio" class="section hero-section relative container pt-12 pb-16">
+            <div class="grid-2 align-center min-h-70vh gap-8">
+                <div class="hero-text reveal reveal-left">
+                    <div class="badge glow"><i class="ri-star-smile-fill text-warning"></i> O Padrão Ouro em Odontologia
+                    </div>
+                    <h1 class="mt-4 text-5xl">Reinventando o seu sorriso com <span class="text-gradient">tecnologia e
+                            arte</span>.</h1>
+                    <p class="text-lg text-gray mt-6 max-w-lg">
+                        Clínica premium especializada em estética e reabilitação oral. Devolvemos a sua confiança com
+                        tratamentos modernos, indolores e resultados de altíssima previsibilidade.
+                    </p>
+                    <div class="flex flex-wrap gap-4 mt-8">
+                        <a href="contato.html" class="btn btn-primary btn-large btn-glow">Agendar Via WhatsApp <i
+                                class="ri-whatsapp-line"></i></a>
+                        <a href="servicos.html" class="btn btn-secondary btn-large">Ver Tratamentos <i
+                                class="ri-arrow-right-line"></i></a>
+                    </div>
                 </div>
-            </div>
-            <div class="hero-image glass fade-in-up" style="animation-delay: 200ms;">
-                 <img src="https://images.unsplash.com/photo-1606811841689-23dfddce3e95?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Consultório Moderno" class="img-fluid radius-md">
+
+                <div class="hero-image relative reveal reveal-right">
+                    <div class="glass p-2 radius-xl shadow-glow">
+                        <img src="https://images.unsplash.com/photo-1600170311833-c2cf5280ce49?q=80&w=1000&auto=format&fit=crop"
+                            alt="Consultório Odontológico Moderno" class="img-fluid radius-lg">
+                    </div>
+                    <div
+                        class="floating-card glass absolute bottom-8 left-[-2rem] p-4 radius-lg shadow-xl flex align-center gap-4 hover-lift float-animation">
+                        <div class="icon-box text-white bg-gradient radius-md p-3"><i
+                                class="ri-scanner-line text-2xl"></i></div>
+                        <div>
+                            <strong class="block text-md">Escaneamento 3D</strong>
+                            <span class="text-sm text-gray">Sem moldes desconfortáveis</span>
+                        </div>
+                    </div>
+                </div>
             </div>
         </section>
 
-        <!-- DESTAQUES RAPIDOS -->
-        <section class="bg-light py-8">
-            <div class="container text-center">
-                <h2 class="text-3xl mb-8">Por que escolher nossa clínica?</h2>
-                <div class="grid-3 gap-6">
-                    <div class="glass p-6 radius-lg hover-lift slide-in-bottom">
-                        <i class="ri-shield-check-line text-primary text-4xl mb-4 text-center w-full block"></i>
-                        <h3>Segurança Total</h3>
-                        <p class="text-gray mt-2">Rigidíssimos protocolos de biossegurança garantindo esterilização impecável.</p>
-                    </div>
-                    <div class="glass p-6 radius-lg hover-lift slide-in-bottom" style="animation-delay: 100ms;">
-                        <i class="ri-microscope-line text-primary text-4xl mb-4 text-center w-full block"></i>
-                        <h3>Alta Tecnologia</h3>
-                        <p class="text-gray mt-2">Equipamentos de imagem 3D, laserterapia e sedação consciente para seu conforto.</p>
-                    </div>
-                    <div class="glass p-6 radius-lg hover-lift slide-in-bottom" style="animation-delay: 200ms;">
-                        <i class="ri-service-line text-primary text-4xl mb-4 text-center w-full block"></i>
-                        <h3>Equipe Multidisciplinar</h3>
-                        <p class="text-gray mt-2">Especialistas unidos para resolver os casos mais complexos no mesmo lugar.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </main>
-    
-    <!-- FOOTER COMPARTILHADO -->
-    <footer class="bg-dark text-white text-center py-6 mt-8">
-        <p>&copy; 2026 AFA Odontologia. Todos os direitos reservados.</p>
-    </footer>
-
-    <!-- MODAL DE AGENDAMENTO COMPARTILHADO -->
-    <div id="schedule-modal" class="modal-overlay hidden">
-        <div class="modal-content glass slide-in-top p-6 radius-lg max-w-lg w-full relative">
-            <button class="modal-close" onclick="App.closeModal('schedule-modal')"><i class="ri-close-line text-2xl"></i></button>
-            <h2 class="text-2xl mb-2" id="modal-title">Novo Agendamento</h2>
-            
-            <div id="sched-step-1" class="sched-step active">
-                <p class="text-gray mb-6">Escolha o serviço e o melhor momento para você.</p>
-                <div class="form-group">
-                    <label>Tipo de Tratamento</label>
-                    <select id="sel-service" class="input-modern w-full">
-                        <option value="Avaliação Inicial|0">Avaliação Inicial - Gratuita</option>
-                        <option value="Dentística (Restauração)|120">Dentística (Restauração) - Sob Orçamento</option>
-                        <option value="Tratamento de Canal|600">Tratamento de Canal - A partir R$ 600</option>
-                        <option value="Próteses Fixa/Removível|1500">Próteses Fixa/Removível - Sob Orçamento</option>
-                        <option value="Ortodontia (Manutenção)|180">Ortodontia (Manutenção) - R$ 180</option>
-                        <option value="Alinhadores Invisíveis|3000">Alinhadores Invisíveis - Sob Avaliação</option>
-                        <option value="Implante Dentário|2500">Implante Dentário - Sugestão R$ 2500</option>
-                        <option value="Facetas / Lentes|1800">Facetas / Lentes - R$ 1800 por dente</option>
-                        <option value="Periodontia|200">Periodontia - R$ 200</option>
-                        <option value="Clareamento|800">Clareamento - R$ 800</option>
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label>Data</label>
-                    <input type="date" id="sel-date" class="input-modern w-full" min="" required>
-                </div>
-                <div class="form-group">
-                    <label>Horário</label>
-                    <div class="flex flex-wrap gap-2" id="slots-container">
-                        <button class="slot-btn" onclick="App.selectSlot(this)">09:00</button>
-                        <button class="slot-btn" onclick="App.selectSlot(this)">10:30</button>
-                        <button class="slot-btn" onclick="App.selectSlot(this)">14:00</button>
-                        <button class="slot-btn" onclick="App.selectSlot(this)">15:30</button>
-                        <button class="slot-btn" onclick="App.selectSlot(this)">17:00</button>
-                    </div>
-                    <input type="hidden" id="sel-time" value="">
-                </div>
-                <button class="btn btn-primary w-full mt-4" onclick="App.nextSchedStep()">Continuar para Dados</button>
-            </div>
-
-            <div id="sched-step-2" class="sched-step hidden">
-                <p class="text-gray mb-4">Insira seus dados para confirmar.</p>
-                <div class="form-group">
-                    <label>Nome Completo *</label>
-                    <input type="text" id="pat-name" class="input-modern w-full" required>
-                </div>
-                <div class="form-group">
-                    <label>Telefone / WhatsApp *</label>
-                    <input type="tel" id="pat-phone" class="input-modern w-full" required>
-                </div>
-                <div class="form-group">
-                    <label>E-mail *</label>
-                    <input type="email" id="pat-email" class="input-modern w-full" required>
-                </div>
-                <div class="flex gap-4 mt-6">
-                    <button class="btn btn-secondary flex-1" onclick="App.prevSchedStep()">Voltar</button>
-                    <button class="btn btn-primary flex-1" onclick="App.finishScheduling()" id="btn-finish-ag">Finalizar Agendamento</button>
-                </div>
-            </div>
-
-             <div id="sched-step-3" class="sched-step hidden text-center py-6">
-                <i class="ri-checkbox-circle-fill text-success" style="font-size: 5rem;"></i>
-                <h2 class="text-2xl mt-4 mb-2">Agendamento Realizado!</h2>
-                <button class="btn btn-secondary w-full mb-2" onclick="App.closeModal('schedule-modal')">Fechar</button>
-                <button class="btn btn-primary w-full" onclick="App.simularEnvioWhatsappPaciente()"><i class="ri-whatsapp-line"></i> Enviar recibo por WhatsApp</button>
+        <!-- PARCEIROS / TECH STRIP -->
+        <div class="brand-strip py-4 glass border-y mt-8">
+            <div class="container flex justify-between align-center flex-wrap gap-8 opacity-70">
+                <span class="text-gray font-bold text-xl"><i class="ri-checkbox-circle-line text-primary"></i>
+                    Invisalign Aligners</span>
+                <span class="text-gray font-bold text-xl"><i class="ri-checkbox-circle-line text-primary"></i> Implantes
+                    Straumann</span>
+                <span class="text-gray font-bold text-xl"><i class="ri-checkbox-circle-line text-primary"></i> Lentes
+                    E-max</span>
+                <span class="text-gray font-bold text-xl"><i class="ri-checkbox-circle-line text-primary"></i>
+                    Laserterapia</span>
             </div>
         </div>
-    </div>
+
+        <!-- SEÇÃO NOVA: POR QUE ESCOLHER A AFA -->
+        <section class="section py-16 bg-white relative border-b border-gray-200">
+            <div class="container text-center max-w-3xl mx-auto mb-12 reveal reveal-up">
+                <span class="badge bg-primary-alpha text-primary">Nossos Diferenciais</span>
+                <h2 class="text-4xl mt-4 mb-4">Por que escolher a <span class="text-gradient">AFA Odontologia?</span></h2>
+                <p class="text-gray">Muito além de tratamentos convencionais, oferecemos uma experiência de acolhimento baseada na mais alta tecnologia global.</p>
+            </div>
+            
+            <div class="container grid-2 gap-8">
+                <div class="glass p-8 radius-lg hover-lift shadow-sm bg-light flex gap-4 reveal reveal-up delay-100">
+                    <div class="text-primary text-4xl"><i class="ri-medal-fill"></i></div>
+                    <div>
+                        <h4 class="text-xl mb-2 font-bold">Corpo Clínico Premium</h4>
+                        <p class="text-gray text-sm">Contamos com especialistas e mestres liderados pela Dra. Amanda Freitas. Profundidade técnica em cada área da odontologia, nunca deixando sua saúde na mão de generalistas.</p>
+                    </div>
+                </div>
+                <div class="glass p-8 radius-lg hover-lift shadow-sm bg-light flex gap-4 reveal reveal-up delay-200">
+                    <div class="text-primary text-4xl"><i class="ri-computer-line"></i></div>
+                    <div>
+                        <h4 class="text-xl mb-2 font-bold">Odontologia Digital</h4>
+                        <p class="text-gray text-sm">O fim da massa e dos moldes que causam ânsia. Trabalhamos com scanner intra-oral 3D para criar próteses perfeitas e apresentar resultados virtuais antes de iniciar o procedimento.</p>
+                    </div>
+                </div>
+                <div class="glass p-8 radius-lg hover-lift shadow-sm bg-light flex gap-4 reveal reveal-up delay-100">
+                    <div class="text-primary text-4xl"><i class="ri-leaf-fill"></i></div>
+                    <div>
+                        <h4 class="text-xl mb-2 font-bold">Ambiente Harmonizado</h4>
+                        <p class="text-gray text-sm">Design pensado para reduzir a ansiedade. Cadeiras massageadoras, fones antirruído e aromaterapia que transformam cada sessão de tratamento em uma verdadeira visita de spa.</p>
+                    </div>
+                </div>
+                <div class="glass p-8 radius-lg hover-lift shadow-sm bg-light flex gap-4 reveal reveal-up delay-200">
+                    <div class="text-primary text-4xl"><i class="ri-shield-check-fill"></i></div>
+                    <div>
+                        <h4 class="text-xl mb-2 font-bold">Rigidez Sanitária</h4>
+                        <p class="text-gray text-sm">Protocolos rigorosos comparáveis à estrutura hospitalar. Garantia de rastreabilidade na esterilização dos materiais, protegendo você a todo momento.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SEÇÃO: DEPOIMENTOS -->
+        <section class="section bg-light py-16 relative">
+            <div class="container grid-2 align-center gap-12">
+                <div class="reveal reveal-left">
+                    <span class="badge">O que dizem</span>
+                    <h2 class="text-4xl mt-4 mb-4">Vidas transformadas <br>são o nosso <span class="text-gradient">legado</span>.</h2>
+                    <p class="text-gray mb-6">Em nossa jornada, já ajudamos centenas de pessoas a sorrirem, comerem e falarem com confiança máxima novamente.</p>
+                    <a href="sobre.html" class="btn btn-secondary mt-4">Conheça mais sobre a clínica <i class="ri-arrow-right-line"></i></a>
+                </div>
+
+                <div class="reveal reveal-right relative">
+                    <div class="testimonial-slider glass radius-xl p-8 shadow-xl bg-gradient-dark text-white relative overflow-hidden">
+                        <div class="quote-icon absolute text-primary opacity-20"><i class="ri-double-quotes-l text-8xl"></i></div>
+                        <div class="relative z-10">
+                            <div class="flex gap-1 mb-4 text-warning">
+                                <i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-fill"></i>
+                            </div>
+                            <p class="text-xl font-light italic mb-6">"Cheguei na AFA com trauma de dentista após
+                                procedimentos terríveis. Fui acolhido, não senti dor nenhuma e saí com o sorriso que
+                                sempre sonhei. As lentes de contato mudaram a minha vida."</p>
+                            <div class="flex align-center gap-3">
+                                <div class="avatar bg-white radius-full text-primary font-bold flex align-center justify-center"
+                                    style="width:40px; height:40px;">RC</div>
+                                <div>
+                                    <h5 class="font-bold">Rafael Costa</h5>
+                                    <p class="text-xs opacity-70">Paciente de Lentes de Contato</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="bg-dark text-gray-400 py-12 text-sm border-t border-gray-800">
+        <div class="container grid-3 gap-8 mb-8">
+            <div>
+                <div class="logo text-white mb-4">
+                    <i class="ri-tooth-line text-primary text-2xl"></i> <span class="font-bold text-xl">AFA <span
+                            class="text-primary">Odonto</span></span>
+                </div>
+                <p>Nossa missão é alinhar a perfeita saúde funcional à mais alta estética do seu sorriso de forma
+                    humanizada e tecnológica.</p>
+            </div>
+            <div>
+                <h4 class="text-white mb-4 text-lg">Links Rápidos</h4>
+                <ul style="list-style:none; padding:0; display:flex; flex-direction:column; gap:8px;">
+                    <li><a href="index.html" class="text-gray-400 hover-text-white transition">Início</a></li>
+                    <li><a href="sobre.html" class="text-gray-400 hover-text-white transition">Nossa Clínica</a></li>
+                    <li><a href="servicos.html" class="text-gray-400 hover-text-white transition">Tratamentos</a></li>
+                    <li><a href="contato.html" class="text-gray-400 hover-text-white transition">Contato</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="text-white mb-4 text-lg">Funcionamento</h4>
+                <p>Segunda à Sexta:<br><strong>08h00 - 19h00</strong></p>
+                <p class="mt-2">Sábado:<br><strong>08h00 - 13h00</strong></p>
+            </div>
+        </div>
+        <div class="container text-center pt-8 border-t border-gray-800 opacity-60">
+            <p>&copy; 2026 AFA Odontologia. RT: Dra. Amanda Freitas CRO-SP 123.456. Todos os direitos reservados.</p>
+            <p class="mt-2"><a href="admin.html" class="text-gray hover-text-white text-xs">Área Administrativa</a></p>
+        </div>
+    </footer>
 
     <!-- SCRIPTS -->
     <script src="api.js"></script>
     <script src="app.js"></script>
 </body>
+
 </html>

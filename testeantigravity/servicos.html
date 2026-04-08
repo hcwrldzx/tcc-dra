@@ -1,155 +1,126 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Serviços - AFA Odontologia</title>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <title>Tratamentos - AFA Odontologia</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Inter:wght@400;500&display=swap"
+        rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
-<body class="bg-light">
-    <!-- HEADER -->
-    <header class="navbar glass sticky">
+
+<body class="bg-gray-50">
+
+    <header class="navbar glass sticky transition-all" id="main-nav">
         <div class="logo">
-            <i class="ri-tooth-line text-primary"></i> <span class="font-bold">AFA <span class="text-primary">Odontologia</span></span>
+            <i class="ri-tooth-line text-primary"></i> <span class="font-bold">AFA <span
+                    class="text-gradient">Odontologia</span></span>
         </div>
         <nav class="desktop-nav">
             <a href="index.html" class="nav-link">Início</a>
             <a href="sobre.html" class="nav-link">A Clínica</a>
-            <a href="servicos.html" class="nav-link" style="color: var(--primary); font-weight: bold;">Serviços</a>
+            <a href="servicos.html" class="nav-link active">Tratamentos</a>
             <a href="contato.html" class="nav-link">Contato</a>
-            <a href="admin.html" class="nav-link text-gray">Acesso Dra. <i class="ri-lock-2-line"></i></a>
+            <a href="admin.html" class="nav-link text-gray ml-4 border-l pl-4 admin-link">Acesso <i
+                    class="ri-lock-2-line"></i></a>
         </nav>
-        <button class="btn btn-primary" onclick="App.openModal('schedule-modal')">Agendar Consulta</button>
+        <div class="flex gap-2">
+            <a href="contato.html" class="btn btn-primary btn-glow">Fale Conosco <i class="ri-whatsapp-line"></i></a>
+        </div>
     </header>
 
     <main>
-        <section class="container py-8 fade-in-up">
-            <div class="text-center max-w-lg mx-auto mb-8">
-                <span class="badge">Especialidades</span>
-                <h1 class="text-3xl mt-2 mb-4">Nossos Serviços Completo</h1>
-                <p class="text-gray">Nossa clínica é um centro completo. Você realiza todos os exames e tratamentos em um só lugar, com os melhores profissionais.</p>
-            </div>
+        <div class="bg-shape shape-2"></div>
 
-            <div class="grid-3 gap-6">
-                <!-- 1 -->
-                <div class="card glass hover-lift p-6">
-                    <i class="ri-tooth-fill text-primary text-4xl mb-4 block"></i>
-                    <h3 class="mb-2">Dentística (Restaurações)</h3>
-                    <p class="text-gray mb-4 text-sm">Tratamento de cáries e fraturas dentárias devolvendo a forma, cor estética e função original ao seu dente utilizando resinas de altíssima durabilidade.</p>
+        <section class="section py-16 relative bg-light z-10 min-h-70vh">
+            <div class="container relative z-10">
+                <div class="text-center max-w-2xl mx-auto mb-16 reveal reveal-up">
+                    <span class="badge">Nossas Soluções</span>
+                    <h1 class="text-5xl mt-4 mb-4">Tratamentos de <br><span class="text-gradient">Excelência</span></h1>
+                    <p class="text-gray text-lg">Tecnologia avançada operada por especialistas apaixonados. Da estética impecável à saúde estrutural profunda, resolveremos tudo em um só lugar.</p>
                 </div>
-                <!-- 2 -->
-                <div class="card glass hover-lift p-6">
-                    <i class="ri-pulse-line text-primary text-4xl mb-4 block"></i>
-                    <h3 class="mb-2">Tratamento de Canal</h3>
-                    <p class="text-gray mb-4 text-sm">A endodontia moderna permite tratamentos ágeis, indolores e na maioria das vezes em sessão única, preservando dentes que sofreram danos severos.</p>
+
+                <div class="grid-3 gap-6">
+                    <!-- Servicos completos listados lindamente -->
+                    <div class="service-card glass radius-xl p-8 hover-lift reveal reveal-up delay-100 bg-white">
+                        <i class="ri-magic-line text-4xl text-primary mb-4 icon-float block"></i>
+                        <h3 class="text-2xl mb-3">Lentes de Contato</h3>
+                        <p class="text-gray text-sm">Estruturas ultrafinas de porcelana coladas sobre os dentes. Corrigem cor, tamanho e formato perfeitamente, proporcionando o "Sorriso de Hollywood" com alta resistência.</p>
+                    </div>
+
+                    <div class="service-card glass radius-xl p-8 hover-lift reveal reveal-up delay-200 bg-white">
+                        <i class="ri-anchor-fill text-4xl text-primary mb-4 icon-float block"></i>
+                        <h3 class="text-2xl mb-3">Implantes Dentários</h3>
+                        <p class="text-gray text-sm">Solução moderna para dentes perdidos. Pino de titânio fixado no osso maxilar e coroa estética por cima, garantindo conforto mastigatório natural.</p>
+                    </div>
+
+                    <div class="service-card glass radius-xl p-8 hover-lift reveal reveal-up delay-300 bg-white">
+                        <i class="ri-font-color text-4xl text-primary mb-4 icon-float block"></i>
+                        <h3 class="text-2xl mb-3">Ortodontia Invisível</h3>
+                        <p class="text-gray text-sm">Invisalign e alinhadores estéticos. Resolva dentes tortos de maneira rápida, altamente discreta e totalmente removível para a sua higiene.</p>
+                    </div>
+
+                    <div class="service-card glass radius-xl p-8 hover-lift reveal reveal-up delay-100 bg-white">
+                        <i class="ri-sun-fill text-4xl text-primary mb-4 icon-float block"></i>
+                        <h3 class="text-2xl mb-3">Clareamento a Laser</h3>
+                        <p class="text-gray text-sm">Devolva o brilho e o aspecto jovem aos dentes. Protocolos seguros de consultório e caseiros para eliminar o amarelado com rapidez.</p>
+                    </div>
+
+                    <div class="service-card glass radius-xl p-8 hover-lift reveal reveal-up delay-200 bg-white">
+                        <i class="ri-tooth-fill text-4xl text-primary mb-4 icon-float block"></i>
+                        <h3 class="text-2xl mb-3">Dentística Funcional</h3>
+                        <p class="text-gray text-sm">Restaurações invisíveis em resina composta aplicadas em camadas. Perfeitas para tratar fraturas ou cáries, mantendo o aspecto natural.</p>
+                    </div>
+
+                    <div class="service-card glass radius-xl p-8 hover-lift reveal reveal-up delay-300 bg-white">
+                        <i class="ri-layout-row-fill text-4xl text-primary mb-4 icon-float block"></i>
+                        <h3 class="text-2xl mb-3">Periodontia</h3>
+                        <p class="text-gray text-sm">O cuidado com o osso e a gengiva ao redor dos dentes. Tratamento de sangramentos e cirurgias gengivais estéticas para harmonização.</p>
+                    </div>
                 </div>
-                <!-- 3 -->
-                <div class="card glass hover-lift p-6">
-                    <i class="ri-layout-top-line text-primary text-4xl mb-4 block"></i>
-                    <h3 class="mb-2">Prótese Fixa e Removível</h3>
-                    <p class="text-gray mb-4 text-sm">Devolva a sua mastigação segura. Oferecemos próteses modernas, coroas em porcelana pura que imitam dentes naturais e próteses sobre implantes.</p>
+                
+                <div class="text-center mt-12 reveal reveal-up">
+                    <a href="contato.html" class="btn btn-primary btn-large btn-glow">Não sabe por onde começar? Avalie conosco <i class="ri-arrow-right-line"></i></a>
                 </div>
-                <!-- 4 -->
-                <div class="card glass hover-lift p-6">
-                    <i class="ri-tools-line text-primary text-4xl mb-4 block"></i>
-                    <h3 class="mb-2">Ortodontia</h3>
-                    <p class="text-gray mb-4 text-sm">Correção de dentes tortos e problemas de mordida com aparelhos convencionais, estéticos (safira) e autoligados, agilizando o tratamento.</p>
-                </div>
-                <!-- 5 -->
-                <div class="card glass hover-lift p-6">
-                    <i class="ri-magic-line text-primary text-4xl mb-4 block"></i>
-                    <h3 class="mb-2">Alinhadores Invisíveis</h3>
-                    <p class="text-gray mb-4 text-sm">A revolução da ortodontia (como Invisalign). Alinhe seus dentes usando placas transparentes removíveis, altamente discretas e muito mais rápidas e confortáveis.</p>
-                </div>
-                <!-- 6 -->
-                <div class="card glass hover-lift p-6">
-                    <i class="ri-anchor-line text-primary text-4xl mb-4 block"></i>
-                    <h3 class="mb-2">Implantes Dentários</h3>
-                    <p class="text-gray mb-4 text-sm">A solução definitiva para dentes perdidos. Substituímos a raiz por materiais biocompatíveis para fixar um novo dente de forma permanente.</p>
-                </div>
-                <!-- 7 -->
-                <div class="card glass hover-lift p-6">
-                    <i class="ri-vip-diamond-line text-primary text-4xl mb-4 block"></i>
-                    <h3 class="mb-2">Facetas / Lentes de Contato</h3>
-                    <p class="text-gray mb-4 text-sm">O "Sorriso das Estrelas". Revestimentos ultrafinos de porcelana colados sobre os dentes, corrigindo cor, tamanho e formato perfeitamente.</p>
-                </div>
-                <!-- 8 -->
-                <div class="card glass hover-lift p-6">
-                    <i class="ri-leaf-line text-primary text-4xl mb-4 block"></i>
-                    <h3 class="mb-2">Periodontia</h3>
-                    <p class="text-gray mb-4 text-sm">A saúde das suas gengivas e ossos é a fundação de tudo. Tratamos sangramentos, retração gengival e garantimos a base estrutural limpa.</p>
-                </div>
-                <!-- 9 -->
-                <div class="card glass hover-lift p-6">
-                    <i class="ri-sun-fill text-primary text-4xl mb-4 block"></i>
-                    <h3 class="mb-2">Clareamento</h3>
-                    <p class="text-gray mb-4 text-sm">Recupere o brilho e a cor clara dos dentes, combatendo manchas do dia-a-dia com métodos a laser (clínica) ou caseiro supervisionado.</p>
-                </div>
-            </div>
-            
-            <div class="mt-8 text-center">
-                <button class="btn btn-primary btn-large" onclick="App.openModal('schedule-modal')">Pronto para transformar seu sorriso? Agende Aqui!</button>
             </div>
         </section>
     </main>
 
-    <!-- FOOTER E MODAL CÓPIA (Para funcionar independentemente) -->
-     <div id="schedule-modal" class="modal-overlay hidden">
-        <div class="modal-content glass p-6 radius-lg max-w-lg w-full relative">
-            <button class="modal-close" onclick="App.closeModal('schedule-modal')"><i class="ri-close-line text-2xl"></i></button>
-            <h2 class="text-2xl mb-2">Novo Agendamento</h2>
-            
-            <div id="sched-step-1" class="sched-step active">
-                <p class="text-gray mb-6">Escolha o serviço e o melhor momento para você.</p>
-                <div class="form-group">
-                    <label>Tipo de Tratamento</label>
-                    <select id="sel-service" class="input-modern w-full">
-                        <option value="Avaliação Inicial|0">Avaliação Inicial - Gratuita</option>
-                        <option value="Dentística (Restauração)|120">Dentística (Restauração) - Sob Orçamento</option>
-                        <option value="Tratamento de Canal|600">Tratamento de Canal - A partir R$ 600</option>
-                        <option value="Próteses Fixa/Removível|1500">Próteses Fixa/Removível - Sob Orçamento</option>
-                        <option value="Ortodontia (Manutenção)|180">Ortodontia (Manutenção) - R$ 180</option>
-                        <option value="Alinhadores Invisíveis|3000">Alinhadores Invisíveis - Sob Avaliação</option>
-                        <option value="Implante Dentário|2500">Implante Dentário - Sugestão R$ 2500</option>
-                        <option value="Facetas / Lentes|1800">Facetas / Lentes - R$ 1800 por dente</option>
-                        <option value="Periodontia|200">Periodontia - R$ 200</option>
-                        <option value="Clareamento|800">Clareamento - R$ 800</option>
-                    </select>
+    <!-- FOOTER -->
+    <footer class="bg-dark text-gray-400 py-12 text-sm border-t border-gray-800">
+        <div class="container grid-3 gap-8 mb-8">
+            <div>
+                <div class="logo text-white mb-4">
+                    <i class="ri-tooth-line text-primary text-2xl"></i> <span class="font-bold text-xl">AFA <span
+                            class="text-primary">Odonto</span></span>
                 </div>
-                <div class="form-group">
-                    <label>Data</label>
-                    <input type="date" id="sel-date" class="input-modern w-full" min="" required>
-                </div>
-                <div class="form-group">
-                    <label>Horário</label>
-                    <div class="flex flex-wrap gap-2" id="slots-container">
-                        <button class="slot-btn" onclick="App.selectSlot(this)">09:00</button>
-                        <button class="slot-btn" onclick="App.selectSlot(this)">14:00</button>
-                    </div>
-                    <input type="hidden" id="sel-time" value="">
-                </div>
-                <button class="btn btn-primary w-full mt-4" onclick="App.nextSchedStep()">Continuar</button>
+                <p>Nossa missão é alinhar a perfeita saúde funcional à mais alta estética do seu sorriso de forma
+                    humanizada e tecnológica.</p>
             </div>
-            <div id="sched-step-2" class="sched-step hidden">
-                <div class="form-group"><label>Nome *</label><input type="text" id="pat-name" class="input-modern w-full"></div>
-                <div class="form-group"><label>Telefone *</label><input type="tel" id="pat-phone" class="input-modern w-full"></div>
-                <div class="form-group"><label>E-mail *</label><input type="email" id="pat-email" class="input-modern w-full"></div>
-                <div class="flex gap-4 mt-6">
-                    <button class="btn btn-secondary flex-1" onclick="App.prevSchedStep()">Voltar</button>
-                    <button class="btn btn-primary flex-1" onclick="App.finishScheduling()" id="btn-finish-ag">Finalizar Agendamento</button>
-                </div>
+            <div>
+                <h4 class="text-white mb-4 text-lg">Links Rápidos</h4>
+                <ul style="list-style:none; padding:0; display:flex; flex-direction:column; gap:8px;">
+                    <li><a href="index.html" class="text-gray-400 hover-text-white transition">Início</a></li>
+                    <li><a href="sobre.html" class="text-gray-400 hover-text-white transition">Nossa Clínica</a></li>
+                    <li><a href="servicos.html" class="text-gray-400 hover-text-white transition">Tratamentos</a></li>
+                    <li><a href="contato.html" class="text-gray-400 hover-text-white transition">Contato</a></li>
+                </ul>
             </div>
-             <div id="sched-step-3" class="sched-step hidden text-center py-6">
-                <i class="ri-checkbox-circle-fill text-success" style="font-size: 5rem;"></i><h2 class="mt-4 mb-2">Agendamento Realizado!</h2>
-                <button class="btn btn-secondary w-full" onclick="App.closeModal('schedule-modal')">Fechar</button>
+            <div>
+                <h4 class="text-white mb-4 text-lg">Funcionamento</h4>
+                <p>Segunda à Sexta:<br><strong>08h00 - 19h00</strong></p>
+                <p class="mt-2">Sábado:<br><strong>08h00 - 13h00</strong></p>
             </div>
         </div>
-    </div>
-    
-    <footer class="bg-dark text-white text-center py-6 mt-8"><p>&copy; 2026 AFA Odontologia. Todos os direitos reservados.</p></footer>
-    
-    <script src="api.js"></script><script src="app.js"></script>
+        <div class="container text-center pt-8 border-t border-gray-800 opacity-60">
+            <p>&copy; 2026 AFA Odontologia. RT: Dra. Amanda Freitas CRO-SP 123.456. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    <script src="api.js"></script>
+    <script src="app.js"></script>
 </body>
 </html>

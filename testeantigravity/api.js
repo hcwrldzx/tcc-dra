@@ -90,6 +90,20 @@ const Api = {
         });
     },
 
+    deleteAppointment: async function(id) {
+        return new Promise(resolve => {
+            let appointments = JSON.parse(localStorage.getItem('appointments'));
+            const initialLength = appointments.length;
+            appointments = appointments.filter(a => a.id !== id);
+            if (appointments.length < initialLength) {
+                localStorage.setItem('appointments', JSON.stringify(appointments));
+                resolve({ success: true });
+            } else {
+                resolve({ success: false, message: 'Consulta não encontrada' });
+            }
+        });
+    },
+
     // ---- HISTÓRICO DE PACIENTES ----
     getPatients: async function() {
         return new Promise(resolve => resolve(JSON.parse(localStorage.getItem('patients'))));

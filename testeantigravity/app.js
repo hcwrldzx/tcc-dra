@@ -17,6 +17,47 @@ const App = {
         if(document.getElementById('admin-login') || document.getElementById('admin-dashboard')) {
             this.checkAuth();
         }
+        
+        this.initScrollAnimations();
+        this.initNavbarScrolled();
+    },
+
+    initScrollAnimations: function() {
+        const reveals = document.querySelectorAll('.reveal');
+        if(!reveals.length) return;
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if(entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                }
+            });
+        }, { threshold: 0.15 });
+
+        reveals.forEach(r => observer.observe(r));
+        
+        // Trigger manual inicial para elementos já visíveis
+        setTimeout(() => {
+            reveals.forEach(r => {
+                const rect = r.getBoundingClientRect();
+                if(rect.top < window.innerHeight) r.classList.add('active');
+            });
+        }, 100);
+    },
+
+    initNavbarScrolled: function() {
+        const nav = document.getElementById('main-nav');
+        if(!nav) return;
+        
+        window.addEventListener('scroll', () => {
+            if(window.scrollY > 50) {
+                nav.classList.add('scrolled');
+            } else {
+                nav.classList.remove('scrolled');
+            }
+            
+
+        });
     },
 
     // ---- FLUXO DE AGENDAMENTO (PACIENTES) ----
@@ -163,16 +204,76 @@ const App = {
         if(p) p.value = '';
     },
 
+    openAdminModal: function() {
+        const m = document.getElementById('admin-modal');
+        if(m) m.classList.remove('hidden');
+    },
+
+    closeAdminModal: function() {
+        const m = document.getElementById('admin-modal');
+        if(m) m.classList.add('hidden');
+        document.getElementById('admin-appt-form').reset();
+    },
+
+    adminAddAppointment: async function(e) {
+        e.preventDefault();
+        
+        const name = document.getElementById('admin-pat-name').value;
+        const phone = document.getElementById('admin-pat-phone').value;
+        const email = document.getElementById('admin-pat-email').value;
+        const srvName = document.getElementById('admin-sel-service').value;
+        const srvPrice = parseFloat(document.getElementById('admin-sel-price').value || 0);
+        
+        const rawDate = document.getElementById('admin-sel-date').value;
+        const d = rawDate.split('-');
+        const formattedDate = `${d[2]}/${d[1]}/${d[0]}`;
+        const time = document.getElementById('admin-sel-time').value;
+        const desc = document.getElementById('admin-pat-desc').value;
+
+        const btn = document.getElementById('btn-admin-submit-appt');
+        btn.innerText = 'Salvando...';
+        btn.disabled = true;
+
+        const data = {
+            service: { name: srvName, price: srvPrice },
+            date: formattedDate,
+            time: time,
+            patient: { name, phone, email },
+            description: desc
+        };
+
+        const res = await Api.addAppointment(data);
+        
+        if (res.success) {
+            this.closeAdminModal();
+            this.loadAdminData(); // Atualiza a tabela com o novo agendamento
+        } else {
+            alert('Falha ao agendar: ' + res.message);
+        }
+
+        btn.innerText = 'Salvar Agendamento';
+        btn.disabled = false;
+    },
+
     loadAdminData: async function() {
         const dashGross = document.getElementById('dash-gross');
         if(!dashGross) return; // Segurança caso a DOM suma
+
+        // Carrega tabela de histórico de clientes
+        this.loadPatientsTable();
 
         const finances = await Api.getFinancialReport();
         dashGross.innerText = `R$ ${finances.gross.toFixed(2).replace('.', ',')}`;
         document.getElementById('dash-net').innerText = `R$ ${finances.net.toFixed(2).replace('.', ',')}`;
         
-        const apps = await Api.getAppointments();
-        document.getElementById('dash-count').innerText = apps.length;
+        const countDash = document.getElementById('dash-count');
+        if(countDash) countDash.innerText = finances.stats.pending + finances.stats.confirmed;
+
+        const dashTaxes = document.getElementById('dash-taxes');
+        if(dashTaxes) dashTaxes.innerText = `R$ ${finances.taxesDeducted.toFixed(2).replace('.', ',')}`;
+        
+        // Handle Chart JS rendering safely
+        this.renderAdminChart(finances);
         
         const list = document.getElementById('admin-appointments-list');
         const empty = document.getElementById('admin-empty-state');
@@ -193,12 +294,17 @@ const App = {
                         <a href="https://wa.me/55${app.patient.phone.replace(/\D/g,'')}?text=Olá, somos da Clínica!" target="_blank" class="text-success" title="Chamar Whatsapp"><i class="ri-whatsapp-line text-lg"></i></a>
                         <br>${app.patient.phone}
                     </td>
-                    <td>${app.service.name}<br><strong class="text-gray">R$ ${app.service.price.toFixed(2)}</strong></td>
+                    <td>${app.service.name}<br><strong class="text-gray">R$ ${app.service.price.toFixed(2)}</strong>
+                        ${app.description ? `<br><span class="text-xs text-gray opacity-70 italic block mt-1"><i class="ri-sticky-note-line"></i> ${app.description}</span>` : ''}
+                    </td>
                     <td>${app.date}<br><strong>${app.time}</strong></td>
                     <td><span class="status-badge status-${app.status}">${app.status.toUpperCase()}</span></td>
                     <td>
-                        <button class="btn btn-sm btn-secondary mb-2 bg-light text-success w-full" style="border-color: var(--success);" onclick="App.changeStatus('${app.id}', 'confirmada')">Confirmar</button>
-                        <button class="btn btn-sm btn-secondary mb-2 w-full text-danger" style="border-color: var(--danger)" onclick="App.changeStatus('${app.id}', 'cancelada')">Cancelar</button>
+                        <div class="flex gap-2">
+                            <button class="btn btn-sm btn-secondary mb-2 bg-light text-success flex-1" style="border-color: var(--success);" onclick="App.changeStatus('${app.id}', 'confirmada')" title="Confirmar"><i class="ri-check-line"></i></button>
+                            <button class="btn btn-sm btn-secondary mb-2 text-danger flex-1" style="border-color: var(--danger)" onclick="App.changeStatus('${app.id}', 'cancelada')" title="Cancelar"><i class="ri-close-line"></i></button>
+                            <button class="btn btn-sm mb-2 text-gray flex-1 bg-light border-y border-l border-r" onclick="App.adminDeleteAppointment('${app.id}')" title="Excluir Permanentemente"><i class="ri-delete-bin-line"></i></button>
+                        </div>
                         <button class="btn btn-sm bg-dark text-white w-full" onclick="App.changeStatus('${app.id}', 'concluida')">Marcar Paga</button>
                     </td>
                 `;
@@ -214,6 +320,92 @@ const App = {
                 this.loadAdminData();
             }
         }
+    },
+
+    loadPatientsTable: async function() {
+        const patients = await Api.getPatients();
+        const list = document.getElementById('admin-patients-list');
+        const empty = document.getElementById('admin-patients-empty');
+        if(!list || !empty) return;
+
+        list.innerHTML = '';
+        
+        if (patients.length === 0) {
+            empty.classList.remove('hidden');
+            list.parentElement.classList.add('hidden');
+        } else {
+            empty.classList.add('hidden');
+            list.parentElement.classList.remove('hidden');
+            
+            // Sort by recent registration
+            patients.sort((a,b) => new Date(b.registeredAt) - new Date(a.registeredAt)).forEach(p => {
+                const dateObj = new Date(p.registeredAt);
+                const pDate = `${('0'+dateObj.getDate()).slice(-2)}/${('0'+(dateObj.getMonth()+1)).slice(-2)}/${dateObj.getFullYear()}`;
+                
+                const tr = document.createElement('tr');
+                tr.innerHTML = `
+                    <td class="text-xs text-gray-400 font-bold">${p.id || '---'}</td>
+                    <td><strong class="text-dark">${p.name}</strong></td>
+                    <td>
+                        <a href="https://wa.me/55${p.phone.replace(/\D/g,'')}?text=Olá ${p.name}, somos da AFA Odontologia!" target="_blank" class="text-success mr-2" title="Chamar Whatsapp"><i class="ri-whatsapp-line text-lg"></i></a>
+                        ${p.phone}
+                    </td>
+                    <td class="text-sm">${p.email || 'Não informado'}</td>
+                    <td class="text-sm">${pDate}</td>
+                `;
+                list.appendChild(tr);
+            });
+        }
+    },
+
+    adminDeleteAppointment: async function(id) {
+        if(confirm(`ATENÇÃO: Deseja EXCLUIR permanentemente este agendamento do sistema? Esta ação não pode ser desfeita.`)) {
+            const res = await Api.deleteAppointment(id);
+            if(res.success) {
+                this.loadAdminData();
+            } else {
+                alert('Erro ao excluir: ' + res.message);
+            }
+        }
+    },
+
+    renderAdminChart: function(finances) {
+        if(typeof Chart === 'undefined') return;
+        
+        const ctx = document.getElementById('appointmentsChart');
+        if(!ctx) return;
+
+        if(this.adminChartInst) {
+            this.adminChartInst.destroy();
+        }
+
+        this.adminChartInst = new Chart(ctx, {
+            type: 'doughnut',
+            data: {
+                labels: ['Pendentes', 'Confirmadas', 'Canceladas'],
+                datasets: [{
+                    data: [finances.stats.pending, finances.stats.confirmed, finances.stats.cancelled],
+                    backgroundColor: [
+                        '#f59e0b', // warning
+                        '#10b981', // success
+                        '#ef4444'  // danger
+                    ],
+                    borderWidth: 0,
+                    hoverOffset: 4
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        position: 'right',
+                        labels: { font: { family: 'Outfit', size: 12 } }
+                    }
+                },
+                cutout: '70%'
+            }
+        });
     }
 };
 
