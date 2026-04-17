@@ -223,6 +223,8 @@ const App = {
         const email = document.getElementById('admin-pat-email').value;
         const srvName = document.getElementById('admin-sel-service').value;
         const srvPrice = parseFloat(document.getElementById('admin-sel-price').value || 0);
+        const cost = parseFloat(document.getElementById('admin-sel-cost').value || 0);
+        const payMethod = document.getElementById('admin-pay-method').value;
         
         const rawDate = document.getElementById('admin-sel-date').value;
         const d = rawDate.split('-');
@@ -239,7 +241,8 @@ const App = {
             date: formattedDate,
             time: time,
             patient: { name, phone, email },
-            description: desc
+            description: desc,
+            financials: { cost: cost, payMethod: payMethod }
         };
 
         const res = await Api.addAppointment(data);
@@ -269,12 +272,16 @@ const App = {
         const countDash = document.getElementById('dash-count');
         if(countDash) countDash.innerText = finances.stats.pending + finances.stats.confirmed;
 
+        const dashCosts = document.getElementById('dash-costs');
+        if(dashCosts) dashCosts.innerText = `R$ ${finances.costs.toFixed(2).replace('.', ',')}`;
+
         const dashTaxes = document.getElementById('dash-taxes');
         if(dashTaxes) dashTaxes.innerText = `R$ ${finances.taxesDeducted.toFixed(2).replace('.', ',')}`;
         
         // Handle Chart JS rendering safely
         this.renderAdminChart(finances);
         
+        const apps = await Api.getAppointments();
         const list = document.getElementById('admin-appointments-list');
         const empty = document.getElementById('admin-empty-state');
         list.innerHTML = '';
@@ -322,6 +329,13 @@ const App = {
         }
     },
 
+    changePatientStatus: async function(id, status) {
+        const res = await Api.updatePatientStatus(id, status);
+        if(res.success) {
+            this.loadAdminData();
+        }
+    },
+
     loadPatientsTable: async function() {
         const patients = await Api.getPatients();
         const list = document.getElementById('admin-patients-list');
@@ -352,6 +366,13 @@ const App = {
                     </td>
                     <td class="text-sm">${p.email || 'Não informado'}</td>
                     <td class="text-sm">${pDate}</td>
+                    <td>
+                        <select class="input-modern bg-white text-sm py-1" onchange="App.changePatientStatus('${p.id}', this.value)" style="min-width: 120px; padding: 0.5rem;">
+                            <option value="pendente" ${(!p.status || p.status === 'pendente') ? 'selected' : ''}>Pendente</option>
+                            <option value="atendido" ${p.status === 'atendido' ? 'selected' : ''}>Atendido</option>
+                            <option value="concluido" ${p.status === 'concluido' ? 'selected' : ''}>Concluído</option>
+                        </select>
+                    </td>
                 `;
                 list.appendChild(tr);
             });
@@ -389,6 +410,42 @@ const App = {
                         '#f59e0b', // warning
                         '#10b981', // success
                         '#ef4444'  // danger
+                    ],
+                    borderWidth: 0,
+                    hoverOffset: 4
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        position: 'right',
+                        labels: { font: { family: 'Outfit', size: 12 } }
+                    }
+                },
+                cutout: '70%'
+            }
+        });
+
+        // Patients Funnel Chart
+        const pCtx = document.getElementById('patientsChart');
+        if(!pCtx) return;
+
+        if(this.adminPatientsChartInst) {
+            this.adminPatientsChartInst.destroy();
+        }
+
+        this.adminPatientsChartInst = new Chart(pCtx, {
+            type: 'doughnut',
+            data: {
+                labels: ['Pendentes', 'Atendidos', 'Concluídos'],
+                datasets: [{
+                    data: [finances.patientStats.pendente, finances.patientStats.atendido, finances.patientStats.concluido],
+                    backgroundColor: [
+                        '#f59e0b', // warning
+                        '#38bdf8', // primary-light
+                        '#10b981'  // success
                     ],
                     borderWidth: 0,
                     hoverOffset: 4

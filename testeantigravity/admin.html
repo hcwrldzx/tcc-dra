@@ -39,65 +39,74 @@
         <!-- DASHBOARD VIEW -->
         <div id="admin-dashboard" class="admin-view hidden bg-light min-h-screen">
             <!-- Admin Header -->
-            <header class="navbar glass sticky top-0 bg-white">
+            <header class="admin-header">
                 <div class="logo">
+                     <i class="ri-dashboard-fill text-primary"></i>
                      <span class="font-bold">Painel de <span class="text-primary">Controle</span></span>
                 </div>
                 <!-- Navigation within Admin -->
                 <nav class="desktop-nav">
-                    <a href="index.html" class="nav-link"><i class="ri-arrow-left-s-line"></i> Site do Paciente</a>
+                    <a href="index.html" class="nav-link"><i class="ri-home-smile-line"></i> Site do Paciente</a>
                 </nav>
                 <div class="flex gap-4 align-center">
-                    <span class="text-gray font-500" id="admin-user-name">Ola, Dra. Administradora</span>
-                    <button class="btn btn-sm btn-secondary" onclick="App.logout()"><i class="ri-logout-box-r-line"></i> Sair</button>
+                    <div class="flex align-center gap-2 p-2 bg-gray-50 radius-full border-gray-800" style="border: 1px solid #e2e8f0; padding-right: 1.5rem;">
+                        <div class="bg-primary text-white radius-full flex align-center justify-center p-2" style="width: 32px; height: 32px;">
+                            <i class="ri-user-star-fill"></i>
+                        </div>
+                        <span class="text-gray font-bold text-sm" id="admin-user-name">Dra. Administradora</span>
+                    </div>
+                    <button class="btn btn-sm btn-secondary" style="border-radius: var(--radius-full);" onclick="App.logout()"><i class="ri-logout-box-r-line"></i> Sair</button>
                 </div>
             </header>
 
             <div class="container pt-6 pb-20 fade-in-up">
-                <h2 class="text-2xl mb-6">Visão Geral Financeira</h2>
-                <div class="grid-4 gap-6 mb-6">
-                    <div class="card glass p-6 border-l-4 border-l-primary">
-                        <div class="text-gray text-xs font-bold uppercase mb-2">Faturamento Bruto</div>
-                        <div class="text-2xl font-bold" id="dash-gross">R$ 0,00</div>
+                <div class="flex justify-between align-center mb-6">
+                    <h2 class="admin-section-title"><i class="ri-wallet-3-fill"></i> Visão Geral Financeira</h2>
+                </div>
+                <div class="grid-4 gap-6 mb-10">
+                    <div class="admin-card p-6 border-l-4 border-l-primary">
+                        <div class="text-gray text-xs font-bold uppercase mb-2 flex justify-between align-center">Faturamento Bruto <i class="ri-arrow-up-circle-fill text-primary text-lg"></i></div>
+                        <div class="text-3xl font-bold text-dark" id="dash-gross">R$ 0,00</div>
                     </div>
-                    <div class="card glass p-6 border-l-4 border-l-success">
-                        <div class="text-gray text-xs font-bold uppercase mb-2">Faturamento Líquido</div>
-                        <div class="text-2xl font-bold text-success" id="dash-net">R$ 0,00</div>
+                    <div class="admin-card p-6 border-l-4 border-l-success">
+                        <div class="text-gray text-xs font-bold uppercase mb-2 flex justify-between align-center">Faturamento Líquido <i class="ri-check-double-line text-success text-lg"></i></div>
+                        <div class="text-3xl font-bold text-success" id="dash-net">R$ 0,00</div>
                     </div>
-                    <div class="card glass p-6 border-l-4 border-l-warn">
-                        <div class="text-gray text-xs font-bold uppercase mb-2">Consultas Válidas</div>
-                        <div class="text-2xl font-bold text-warning" id="dash-count">0</div>
+                    <div class="admin-card p-6 border-l-4 border-l-warn">
+                        <div class="text-gray text-xs font-bold uppercase mb-2 flex justify-between align-center">Custos (Variável) <i class="ri-tools-fill text-warning text-lg"></i></div>
+                        <div class="text-3xl font-bold text-warning" id="dash-costs">R$ 0,00</div>
                     </div>
-                    <div class="card glass p-6 border-l-4" style="border-left-color: var(--danger)">
-                        <div class="text-gray text-xs font-bold uppercase mb-2">Impostos/Taxas (15%)</div>
-                        <div class="text-2xl font-bold text-danger" id="dash-taxes">R$ 0,00</div>
+                    <div class="admin-card p-6 border-l-4" style="border-left-color: var(--danger)">
+                        <div class="text-gray text-xs font-bold uppercase mb-2 flex justify-between align-center">Impostos (15%) <i class="ri-percent-fill text-danger text-lg"></i></div>
+                        <div class="text-3xl font-bold text-danger" id="dash-taxes">R$ 0,00</div>
                     </div>
                 </div>
 
-                <div class="grid-2 gap-6 mb-8" style="grid-template-columns: 2fr 1fr;">
-                    <div class="card glass p-6 shadow-sm">
-                        <h3 class="text-lg mb-4 text-gray font-bold">Desempenho de Status</h3>
-                        <div style="height: 180px;">
+                <div class="grid-2 gap-6 mb-12">
+                    <div class="admin-card p-6">
+                        <h3 class="text-lg mb-4 text-dark font-bold flex align-center gap-2"><i class="ri-pie-chart-2-fill text-primary"></i> Status de Consultas</h3>
+                        <div style="height: 220px;">
                             <canvas id="appointmentsChart"></canvas>
                         </div>
                     </div>
-                    <div class="card glass p-6 shadow-sm bg-gradient-dark text-white flex flex-col justify-center align-center text-center">
-                        <i class="ri-pass-valid-line text-5xl text-success mb-2"></i>
-                        <h3 class="text-xl font-bold mb-2">Dica Operacional</h3>
-                        <p class="text-sm opacity-70">Marque consultas concluídas rapidamente e exclua agendamentos ociosos para não mascarar a previsão de lucros deste mês.</p>
+                    <div class="admin-card p-6">
+                        <h3 class="text-lg mb-4 text-dark font-bold flex align-center gap-2"><i class="ri-bar-chart-grouped-fill text-primary"></i> Funil de Pacientes</h3>
+                        <div style="height: 220px;">
+                            <canvas id="patientsChart"></canvas>
+                        </div>
                     </div>
                 </div>
 
                 <!-- Gestão de Consultas -->
-                <div class="flex justify-between align-center mb-4">
-                    <h2 class="text-2xl m-0">Gerenciamento da Agenda</h2>
-                    <div class="flex gap-2">
-                        <button class="btn btn-primary bg-success border-success text-white" onclick="App.openAdminModal()"><i class="ri-add-line"></i> Novo Agendamento</button>
-                        <button class="btn btn-primary" onclick="App.loadAdminData()"><i class="ri-refresh-line"></i> Atualizar Dados</button>
+                <div class="flex justify-between align-center mb-6">
+                    <h2 class="admin-section-title"><i class="ri-calendar-todo-fill"></i> Gerenciamento da Agenda</h2>
+                    <div class="flex gap-3">
+                        <button class="btn btn-secondary" onclick="App.loadAdminData()"><i class="ri-refresh-line"></i> Atualizar</button>
+                        <button class="btn btn-primary" style="background-color: var(--success); border-color: var(--success);" onclick="App.openAdminModal()"><i class="ri-add-line"></i> Novo Agendamento</button>
                     </div>
                 </div>
                 
-                <div class="card glass p-0 overflow-hidden shadow-sm">
+                <div class="admin-card p-0 overflow-hidden mb-12">
                     <table class="modern-table w-full text-left table-responsive">
                         <thead class="bg-gray-100">
                             <tr>
@@ -120,11 +129,11 @@
                 </div>
 
                 <!-- Gestão de Pacientes -->
-                <div class="flex justify-between align-center mb-4 mt-12">
-                    <h2 class="text-2xl m-0">Banco de Pacientes</h2>
+                <div class="flex justify-between align-center mb-6 mt-12">
+                    <h2 class="admin-section-title"><i class="ri-group-fill"></i> Banco de Pacientes</h2>
                 </div>
                 
-                <div class="card glass p-0 overflow-hidden shadow-sm">
+                <div class="admin-card p-0 overflow-hidden">
                     <table class="modern-table w-full text-left table-responsive">
                         <thead class="bg-gray-100">
                             <tr>
@@ -133,6 +142,7 @@
                                 <th>Telefone / WhatsApp</th>
                                 <th>E-mail</th>
                                 <th>Primeiro Registro</th>
+                                <th>Status do Cliente</th>
                             </tr>
                         </thead>
                         <tbody id="admin-patients-list">
@@ -180,6 +190,24 @@
                 <div class="form-group w-full">
                     <label class="font-bold text-sm text-gray">VALOR COBRADO (R$) *</label>
                     <input type="number" step="0.01" id="admin-sel-price" class="input-modern w-full" value="0.00" required>
+                </div>
+
+                <div class="form-group w-full mt-4 p-4 border-l-4 border-l-warn bg-white radius-md shadow-sm">
+                    <label class="font-bold text-sm text-gray mb-2 block"><i class="ri-money-dollar-circle-fill"></i> DETALHES FINANCEIROS</label>
+                    <div class="grid-2 gap-4">
+                        <div class="form-group w-full mb-0">
+                            <label class="font-bold text-xs text-gray">CUSTOS DE MATERIAL / LAB (R$)</label>
+                            <input type="number" step="0.01" id="admin-sel-cost" class="input-modern w-full" value="0.00">
+                        </div>
+                        <div class="form-group w-full mb-0">
+                            <label class="font-bold text-xs text-gray">FORMA DE PAGAMENTO</label>
+                            <select id="admin-pay-method" class="input-modern w-full">
+                                <option value="pix">PIX</option>
+                                <option value="cartao">Cartão</option>
+                                <option value="dinheiro">Dinheiro</option>
+                            </select>
+                        </div>
+                    </div>
                 </div>
 
                 <div class="grid-2 gap-4">
